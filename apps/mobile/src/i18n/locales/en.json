@@ -1,0 +1,127 @@
+{
+  "app": {
+    "name": "WHATS POPPIN",
+    "tagline": "All of Israel's pop-ups in one place"
+  },
+  "tabs": {
+    "discover": "Discover",
+    "map": "Map",
+    "saved": "Saved",
+    "profile": "Profile"
+  },
+  "common": {
+    "retry": "Try again",
+    "seeAll": "See all",
+    "close": "Close",
+    "back": "Back",
+    "loading": "Loading…",
+    "sponsored": "Sponsored",
+    "free": "Free entry",
+    "comingSoon": "Coming soon"
+  },
+  "status": {
+    "openNow": "Open now",
+    "openUntil": "Open now · until {{time}}",
+    "openUntilMidnight": "Open now · until midnight",
+    "opensToday": "Opens today at {{time}}",
+    "opensTomorrow": "Opens tomorrow at {{time}}",
+    "opensOnWeekday": "Opens {{weekday}} at {{time}}",
+    "opensOnDate": "Opens on {{date}}",
+    "closedNow": "Closed now",
+    "ended": "Ended",
+    "lastDay": "Last day!",
+    "endsTomorrow": "Ends tomorrow",
+    "endsInTwoDays": "Ends in 2 days",
+    "endsInDays": "Ends in {{count}} days"
+  },
+  "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  "distance": {
+    "m": "{{value}} m away",
+    "km": "{{value}} km away"
+  },
+  "price": {
+    "free": "Free",
+    "low": "₪",
+    "medium": "₪₪",
+    "high": "₪₪₪"
+  },
+  "categories": {
+    "all": "All",
+    "food": "Food",
+    "fashion": "Fashion & Design",
+    "markets": "Markets",
+    "art": "Art & Culture",
+    "kids": "Kids & Family",
+    "brands": "Brands",
+    "more": "More"
+  },
+  "cities": {
+    "all": "All of Israel",
+    "tel-aviv": "Tel Aviv-Yafo",
+    "jerusalem": "Jerusalem",
+    "haifa": "Haifa",
+    "rishon-lezion": "Rishon LeZion",
+    "beer-sheva": "Be'er Sheva",
+    "eilat": "Eilat"
+  },
+  "discover": {
+    "title": "What's on today?",
+    "placeholderTitle": "The feed is on its way!",
+    "placeholderBody": "Hot pop-ups, what's near you and what's on this weekend will show up here. Meanwhile, take a look at the design.",
+    "openPreview": "Open the design preview"
+  },
+  "map": {
+    "placeholderTitle": "The map is on its way!",
+    "placeholderBody": "Soon you'll see every pop-up on the map and find the nearest ones with one tap."
+  },
+  "saved": {
+    "emptyTitle": "No saved pop-ups yet",
+    "emptyBody": "Tap ♡ on any pop-up to save it here. We'll remind you before it ends.",
+    "emptyAction": "Discover pop-ups"
+  },
+  "profile": {
+    "title": "Profile",
+    "placeholderTitle": "Your settings are coming soon",
+    "placeholderBody": "Pick favorite categories, your home area, notifications, and submit a pop-up for your business.",
+    "devSection": "For developers",
+    "uiPreview": "Design system preview",
+    "connection": "Server connection"
+  },
+  "health": {
+    "notConfigured": "Supabase is not configured. Fill in .env.local (see README).",
+    "checking": "Checking connection…",
+    "ok": "Connected · {{count}} live pop-ups",
+    "failed": "Can't reach the server: {{message}}"
+  },
+  "errors": {
+    "genericTitle": "Something went wrong",
+    "genericBody": "It's not you, it's us. Please try again in a moment.",
+    "offlineTitle": "No internet connection",
+    "offlineBody": "Check your connection and try again."
+  },
+  "a11y": {
+    "popupCard": "{{title}}, {{category}}, {{place}}, {{status}}",
+    "sponsoredSuffix": "Sponsored content",
+    "imageFallback": "{{category}} image",
+    "saveButton": "Save {{title}}",
+    "unsaveButton": "Remove {{title}} from saved"
+  },
+  "preview": {
+    "title": "Design system",
+    "colors": "Colors",
+    "typography": "Typography",
+    "buttons": "Buttons",
+    "chips": "Chips",
+    "statuses": "Statuses",
+    "cards": "Cards",
+    "states": "States",
+    "primaryButton": "Navigate",
+    "secondaryButton": "Share",
+    "ghostButton": "Cancel",
+    "sampleDisplay": "WHATS POPPIN",
+    "sampleTitle": "Florentin Food Market",
+    "sampleHeading": "Hot now 🔥",
+    "sampleBody": "Street food from young chefs, a DJ and local beer.",
+    "sampleMeta": "1.2 km away · Tel Aviv-Yafo"
+  }
+}

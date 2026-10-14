@@ -1,0 +1,127 @@
+{
+  "app": {
+    "name": "WHATS POPPIN",
+    "tagline": "כל הפופ-אפים בישראל במקום אחד"
+  },
+  "tabs": {
+    "discover": "גילוי",
+    "map": "מפה",
+    "saved": "שמורים",
+    "profile": "פרופיל"
+  },
+  "common": {
+    "retry": "לנסות שוב",
+    "seeAll": "הכל",
+    "close": "סגירה",
+    "back": "חזרה",
+    "loading": "טוען…",
+    "sponsored": "ממומן",
+    "free": "כניסה חופשית",
+    "comingSoon": "בקרוב"
+  },
+  "status": {
+    "openNow": "פתוח עכשיו",
+    "openUntil": "פתוח עכשיו · עד {{time}}",
+    "openUntilMidnight": "פתוח עכשיו · עד חצות",
+    "opensToday": "נפתח היום ב-{{time}}",
+    "opensTomorrow": "נפתח מחר ב-{{time}}",
+    "opensOnWeekday": "נפתח ביום {{weekday}} ב-{{time}}",
+    "opensOnDate": "נפתח ב-{{date}}",
+    "closedNow": "סגור כעת",
+    "ended": "הסתיים",
+    "lastDay": "יום אחרון!",
+    "endsTomorrow": "מסתיים מחר",
+    "endsInTwoDays": "מסתיים בעוד יומיים",
+    "endsInDays": "מסתיים בעוד {{count}} ימים"
+  },
+  "weekdays": ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"],
+  "distance": {
+    "m": "{{value}} מ׳ ממך",
+    "km": "{{value}} ק״מ ממך"
+  },
+  "price": {
+    "free": "חינם",
+    "low": "₪",
+    "medium": "₪₪",
+    "high": "₪₪₪"
+  },
+  "categories": {
+    "all": "הכל",
+    "food": "אוכל",
+    "fashion": "אופנה ועיצוב",
+    "markets": "שווקים",
+    "art": "אמנות ותרבות",
+    "kids": "ילדים ומשפחה",
+    "brands": "מותגים",
+    "more": "עוד"
+  },
+  "cities": {
+    "all": "כל הארץ",
+    "tel-aviv": "תל אביב-יפו",
+    "jerusalem": "ירושלים",
+    "haifa": "חיפה",
+    "rishon-lezion": "ראשון לציון",
+    "beer-sheva": "באר שבע",
+    "eilat": "אילת"
+  },
+  "discover": {
+    "title": "מה קורה היום?",
+    "placeholderTitle": "הפיד בדרך!",
+    "placeholderBody": "כאן יופיעו הפופ-אפים הלוהטים, מה שקרוב אליך ומה שקורה בסופ״ש. בינתיים אפשר להציץ בעיצוב.",
+    "openPreview": "לתצוגת העיצוב"
+  },
+  "map": {
+    "placeholderTitle": "המפה בדרך!",
+    "placeholderBody": "בקרוב תוכלו לראות את כל הפופ-אפים על המפה ולמצוא את הקרובים אליכם בלחיצה אחת."
+  },
+  "saved": {
+    "emptyTitle": "עוד לא שמרת פופ-אפים",
+    "emptyBody": "לחצו על ♡ בכל פופ-אפ כדי לשמור אותו כאן. נזכיר לכם לפני שהוא נגמר.",
+    "emptyAction": "לגלות פופ-אפים"
+  },
+  "profile": {
+    "title": "פרופיל",
+    "placeholderTitle": "ההגדרות שלך יגיעו בקרוב",
+    "placeholderBody": "כאן תוכלו לבחור קטגוריות אהובות, אזור מגורים, התראות, ולהגיש פופ-אפ לעסק שלכם.",
+    "devSection": "למפתחים",
+    "uiPreview": "תצוגת מערכת העיצוב",
+    "connection": "חיבור לשרת"
+  },
+  "health": {
+    "notConfigured": "Supabase לא מוגדר. צריך למלא את הקובץ ‎.env.local (הסבר ב-README).",
+    "checking": "בודק חיבור…",
+    "ok": "מחובר · {{count}} פופ-אפים פעילים",
+    "failed": "אין חיבור לשרת: {{message}}"
+  },
+  "errors": {
+    "genericTitle": "משהו השתבש",
+    "genericBody": "זה לא אתם, זה אנחנו. נסו שוב בעוד רגע.",
+    "offlineTitle": "אין חיבור לאינטרנט",
+    "offlineBody": "בדקו את החיבור ונסו שוב."
+  },
+  "a11y": {
+    "popupCard": "{{title}}, {{category}}, {{place}}, {{status}}",
+    "sponsoredSuffix": "תוכן ממומן",
+    "imageFallback": "תמונה של {{category}}",
+    "saveButton": "שמירת {{title}}",
+    "unsaveButton": "הסרת {{title}} מהשמורים"
+  },
+  "preview": {
+    "title": "מערכת העיצוב",
+    "colors": "צבעים",
+    "typography": "טיפוגרפיה",
+    "buttons": "כפתורים",
+    "chips": "צ׳יפים",
+    "statuses": "סטטוסים",
+    "cards": "כרטיסים",
+    "states": "מצבים",
+    "primaryButton": "ניווט",
+    "secondaryButton": "שיתוף",
+    "ghostButton": "ביטול",
+    "sampleDisplay": "WHATS POPPIN",
+    "sampleTitle": "שוק האוכל של פלורנטין",
+    "sampleHeading": "לוהט עכשיו 🔥",
+    "sampleBody": "דוכני אוכל של שפים צעירים, די-ג׳יי ובירה מקומית.",
+    "sampleMeta": "1.2 ק״מ ממך · תל אביב-יפו"
+  }
+}

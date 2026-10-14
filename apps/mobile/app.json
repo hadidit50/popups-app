@@ -1,0 +1,69 @@
+{
+  "expo": {
+    "name": "WHATS POPPIN",
+    "slug": "whats-poppin",
+    "scheme": "whatspoppin",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "com.whatspoppin.app",
+      "supportsTablet": false,
+      "infoPlist": {
+        "CFBundleDevelopmentRegion": "he"
+      }
+    },
+    "android": {
+      "package": "com.whatspoppin.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#FFF7ED",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "supportsRTL": true,
+      "forcesRTL": true
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-localization",
+        {
+          "supportsRTL": true,
+          "forcesRTL": true,
+          "supportedLocales": ["he", "en"]
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "WHATS POPPIN משתמשת במיקום שלך רק כדי להראות פופ-אפים קרובים אלייך ואת המרחק אליהם."
+        }
+      ],
+      "expo-font",
+      "expo-image",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "backgroundColor": "#FFF7ED"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
