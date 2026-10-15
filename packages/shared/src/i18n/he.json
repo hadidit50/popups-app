@@ -97,8 +97,26 @@
     "seeAllNearby": "לכל הפופ-אפים הקרובים"
   },
   "map": {
-    "placeholderTitle": "המפה בדרך!",
-    "placeholderBody": "בקרוב תוכלו לראות את כל הפופ-אפים על המפה ולמצוא את הקרובים אליכם בלחיצה אחת."
+    "title": "מפה",
+    "nearMe": "קרוב אליי",
+    "nearMeLabel": "הצגת הפופ-אפים הקרובים אליי",
+    "listToggleShow": "הצגת רשימה",
+    "listToggleHide": "הסתרת רשימה",
+    "countInArea": "{{count}} פופ-אפים עד {{km}} ק״מ ממך",
+    "countInAreaOne": "פופ-אפ אחד עד {{km}} ק״מ ממך",
+    "radius": "מרחק",
+    "radiusOption": "{{km}} ק״מ",
+    "noLocationTitle": "איפה לחפש?",
+    "noLocationBody": "הפעילו מיקום או בחרו עיר, ונראה לכם את הפופ-אפים הקרובים לפי מרחק.",
+    "emptyTitle": "אין פופ-אפים במרחק הזה",
+    "emptyBody": "נסו להגדיל את המרחק או להסיר סינונים.",
+    "mapLabel": "מפת הפופ-אפים. אותו מידע זמין גם ברשימה שמתחת.",
+    "loadingMap": "המפה נטענת…",
+    "mapError": "לא הצלחנו לטעון את המפה. הרשימה עדיין עובדת.",
+    "sponsoredMarker": "מקום ממומן",
+    "closePreview": "סגירת התצוגה המקדימה",
+    "legend": "מקרא",
+    "youAreHere": "המיקום שלך"
   },
   "saved": {
     "emptyTitle": "עוד לא שמרת פופ-אפים",

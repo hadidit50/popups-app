@@ -97,8 +97,26 @@
     "seeAllNearby": "See everything nearby"
   },
   "map": {
-    "placeholderTitle": "The map is on its way!",
-    "placeholderBody": "Soon you'll see every pop-up on the map and find the nearest ones with one tap."
+    "title": "Map",
+    "nearMe": "Near me",
+    "nearMeLabel": "Show pop-ups near me",
+    "listToggleShow": "Show list",
+    "listToggleHide": "Hide list",
+    "countInArea": "{{count}} pop-ups within {{km}} km",
+    "countInAreaOne": "1 pop-up within {{km}} km",
+    "radius": "Distance",
+    "radiusOption": "{{km}} km",
+    "noLocationTitle": "Where should we look?",
+    "noLocationBody": "Turn on location or pick a city to see the closest pop-ups.",
+    "emptyTitle": "No pop-ups within this distance",
+    "emptyBody": "Try a larger distance or remove filters.",
+    "mapLabel": "Pop-up map. The same information is available in the list below.",
+    "loadingMap": "Loading the map…",
+    "mapError": "The map couldn't load. The list still works.",
+    "sponsoredMarker": "Sponsored place",
+    "closePreview": "Close preview",
+    "legend": "Legend",
+    "youAreHere": "You are here"
   },
   "saved": {
     "emptyTitle": "No saved pop-ups yet",
