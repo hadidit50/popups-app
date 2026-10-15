@@ -1,0 +1,24 @@
+.dialog {
+  border: none;
+  padding: 0;
+  margin: auto auto 0;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85dvh;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: var(--shadow-floating);
+}
+.dialog::backdrop { background: rgb(17 24 39 / 0.55); }
+.inner { padding: var(--space-md) var(--gutter) calc(var(--space-lg) + env(safe-area-inset-bottom)); display: grid; gap: var(--space-md); }
+.handle { width: 44px; height: 5px; border-radius: 3px; background: var(--color-border); margin: 0 auto; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-sm); }
+.close {
+  width: var(--touch); height: var(--touch); flex: none;
+  display: grid; place-items: center; border-radius: 50%;
+  background: var(--color-surface);
+}
+@media (min-width: 900px) {
+  .dialog { margin: auto; border-radius: var(--radius-xl); }
+}

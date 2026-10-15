@@ -1,0 +1,23 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--touch);
+  padding-inline: var(--space-md);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.chip:hover { background: var(--color-surface); }
+.selected, .selected:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--color-text-inverse);
+}
+.icon { color: var(--accent); display: inline-flex; }
+.selected .icon { color: var(--color-text-inverse); }

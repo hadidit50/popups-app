@@ -1,0 +1,5 @@
+.container { display: grid; justify-items: center; gap: var(--space-sm); padding: var(--space-xl) var(--space-md); text-align: center; max-width: 34rem; margin-inline: auto; }
+.circle { width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; margin-bottom: var(--space-xs); background: var(--color-primary-soft); color: var(--color-primary); }
+.error .circle { background: var(--color-error-soft); color: var(--color-error); }
+.body { color: var(--color-text-secondary); }
+.action { margin-top: var(--space-sm); width: 100%; max-width: 22rem; }

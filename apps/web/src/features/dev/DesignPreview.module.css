@@ -1,0 +1,23 @@
+.stack { display: grid; gap: var(--space-xxl); }
+.intro { display: grid; gap: var(--space-xxs); padding-top: var(--space-md); }
+.section { display: grid; gap: var(--space-md); }
+.carousel {
+  display: flex; gap: var(--space-sm);
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: var(--space-xs) var(--gutter);
+  margin-inline: calc(var(--gutter) * -1);
+}
+.carousel > * { scroll-snap-align: start; }
+.grid { display: grid; gap: var(--space-md); grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.chipRow {
+  display: flex; gap: var(--space-xs); overflow-x: auto;
+  padding: var(--space-xxs) var(--gutter);
+  margin-inline: calc(var(--gutter) * -1);
+}
+.wrapRow { display: flex; flex-wrap: wrap; gap: var(--space-xs); align-items: center; }
+.buttons { display: grid; gap: var(--space-sm); max-width: 26rem; }
+.swatches { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.swatch { display: grid; justify-items: center; gap: 4px; width: 96px; }
+.swatchColor { width: 56px; height: 56px; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+.states { display: grid; gap: var(--space-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.stateBox { border: 1px solid var(--color-border); border-radius: var(--radius-lg); }

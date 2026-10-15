@@ -1,0 +1,8 @@
+.page {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-md) var(--gutter) calc(var(--bottom-nav-height) + var(--space-xl) + env(safe-area-inset-bottom));
+}
+@media (min-width: 900px) {
+  .page { padding-bottom: var(--space-xxl); }
+}

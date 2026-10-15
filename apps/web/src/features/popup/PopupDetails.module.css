@@ -1,0 +1,59 @@
+.page { display: grid; gap: var(--space-lg); padding-top: var(--space-xs); }
+.back { display: inline-flex; align-items: center; gap: 4px; min-height: var(--touch); font-weight: 500; color: var(--color-text-secondary); justify-self: start; }
+.layout { display: grid; gap: var(--space-lg); }
+@media (min-width: 900px) { .layout { grid-template-columns: 1.1fr 1fr; align-items: start; } .side { position: sticky; top: 80px; } }
+.gallery {
+  display: flex; gap: var(--space-xs); overflow-x: auto; scroll-snap-type: x mandatory;
+  border-radius: var(--radius-lg);
+  margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+.gallery > * { flex: 0 0 100%; scroll-snap-align: center; border-radius: var(--radius-lg); overflow: hidden; }
+.galleryMany > * { flex-basis: 88%; }
+@media (min-width: 900px) { .gallery { margin-inline: 0; padding-inline: 0; } }
+.head { display: grid; gap: var(--space-xs); }
+.badges { display: flex; flex-wrap: wrap; gap: var(--space-xs); align-items: center; }
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px var(--space-xs); border-radius: var(--radius-sm); color: var(--color-text-inverse); font-size: 0.9375rem; font-weight: 500; }
+.side { display: grid; gap: var(--space-md); }
+.card { display: grid; gap: var(--space-sm); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-surface); }
+.cardTitle { display: flex; align-items: center; gap: var(--space-xs); }
+.hours { width: 100%; border-collapse: collapse; }
+.hours th, .hours td { padding: 6px 0; text-align: start; font-weight: 400; }
+.hours td { text-align: end; font-variant-numeric: tabular-nums; }
+.hours tr[data-today='true'] th, .hours tr[data-today='true'] td { font-weight: 700; color: var(--color-text); }
+.hours tr { border-bottom: 1px solid var(--color-border); color: var(--color-text-secondary); }
+.hours tr:last-child { border-bottom: none; }
+.list { list-style: none; display: grid; gap: var(--space-xs); }
+.list li { display: flex; align-items: center; gap: var(--space-xs); }
+.yes { color: var(--color-open); }
+.no { color: var(--color-text-secondary); }
+.links { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.description { white-space: pre-line; }
+.banner { display: grid; gap: var(--space-xs); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-soon-soft); }
+.pending { padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); background: var(--color-sponsored-soft); color: var(--color-sponsored); }
+
+/* Actions: the two navigation buttons stay reachable at the bottom of the screen on phones. */
+.actions { display: grid; gap: var(--space-sm); }
+.navRow { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs); }
+.secondaryRow { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs); }
+.iconAction {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: 64px; border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border); background: var(--color-bg);
+  font-size: 0.9375rem; font-weight: 500;
+}
+.iconAction:hover { background: var(--color-surface); }
+.iconAction[aria-pressed='true'] { color: var(--color-error); border-color: var(--color-error); }
+.apple { justify-self: center; display: inline-flex; align-items: center; gap: 4px; min-height: var(--touch); color: var(--color-text-secondary); text-decoration: underline; }
+.sticky {
+  position: sticky; bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom) + var(--space-xs)); z-index: 10;
+  padding: var(--space-xs); border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 0.96); box-shadow: var(--shadow-floating);
+}
+@media (min-width: 900px) { .sticky { position: static; box-shadow: none; padding: 0; background: none; } }
+.toast {
+  position: fixed; inset-inline: var(--gutter); bottom: calc(var(--bottom-nav-height) + 110px); z-index: 40;
+  max-width: 480px; margin-inline: auto;
+  padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+  background: var(--color-text); color: var(--color-text-inverse); text-align: center;
+}
