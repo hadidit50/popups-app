@@ -13,6 +13,7 @@
     "@mdi/js": "^7.4.47",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.118.0",
+    "@tanstack/react-query": "^5.104.3",
     "@whats-poppin/shared": "*",
     "next": "16.4.1",
     "react": "19.3.0",

@@ -1,0 +1,6 @@
+.feed { display: grid; gap: var(--space-lg); padding-top: var(--space-xs); }
+.header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); }
+.section { display: grid; gap: var(--space-sm); }
+.nearbyEmpty { display: grid; gap: var(--space-xxs); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-surface); }
+/* Let horizontal scrollers (categories, carousels) scroll instead of widening the page. */
+.feed > *, .section > * { min-width: 0; }

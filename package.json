@@ -11,6 +11,6 @@
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "db:test": "bash supabase/tests/run-local.sh",
-    "db:setup-file": "bash supabase/build-setup.sh"
+    "db:setup-file": "bash supabase/build-setup.sh && python3 packages/shared/scripts/gen-demo-data.py"
   }
 }

@@ -20,7 +20,9 @@
     "comingSoon": "Coming soon",
     "skipToContent": "Skip to content",
     "mainNav": "Main navigation",
-    "home": "Home"
+    "home": "Home",
+    "tryAgain": "Try again",
+    "demoMode": "Demo mode: sample data until Supabase is connected."
   },
   "status": {
     "openNow": "Open now",
@@ -79,7 +81,20 @@
     "title": "What's on today?",
     "placeholderTitle": "The feed is on its way!",
     "placeholderBody": "Hot pop-ups, what's near you and what's on this weekend will show up here. Meanwhile, take a look at the design.",
-    "openPreview": "Open the design preview"
+    "openPreview": "Open the design preview",
+    "searchPlaceholder": "Search: tacos, market, vintage, Haifa…",
+    "searchLabel": "Search pop-ups",
+    "searchButton": "Search",
+    "categoriesLabel": "Categories",
+    "hot": "🔥 Hot now",
+    "nearby": "📍 Near you",
+    "weekend": "📅 This weekend",
+    "endingSoon": "⏳ Ending soon",
+    "nearbyRadius": "Within {{km}} km",
+    "nearbyEmptyTitle": "Nothing nearby right now",
+    "nearbyEmptyBody": "We checked up to 50 km around you. Pick another city or browse the whole country.",
+    "sectionEmpty": "Nothing here right now. Check back soon!",
+    "seeAllNearby": "See everything nearby"
   },
   "map": {
     "placeholderTitle": "The map is on its way!",
@@ -144,5 +159,55 @@
     "title": "Page not found",
     "body": "The pop-up may have ended, or the link is wrong. Head back home to see what's on now.",
     "action": "Back to home"
+  },
+  "location": {
+    "promptTitle": "Want to see what's near you?",
+    "promptBody": "We only use your location to show distances and sort by what's close. We don't store it.",
+    "useMyLocation": "Use my location",
+    "chooseCity": "Choose a city",
+    "locating": "Finding your location…",
+    "deniedTitle": "We couldn't get your location",
+    "deniedBody": "No problem! Pick a city and we'll show you what's on there.",
+    "near": "Near: {{place}}",
+    "myLocation": "My location",
+    "change": "Change",
+    "changeLabel": "Change location",
+    "sheetTitle": "Where are you?",
+    "sheetBody": "We'll sort pop-ups by what's closest.",
+    "everywhere": "Whole country (no location)",
+    "unknown": "Set location"
+  },
+  "list": {
+    "titles": {
+      "hot": "Hot now",
+      "nearby": "Near you",
+      "weekend": "This weekend",
+      "ending-soon": "Ending soon"
+    },
+    "count": "{{count}} pop-ups",
+    "countOne": "1 pop-up",
+    "emptyTitle": "No pop-ups found",
+    "emptyFiltered": "Try removing some filters.",
+    "emptyBody": "Nothing here right now. Check back soon, or browse the whole country.",
+    "backHome": "Back home",
+    "needLocationTitle": "We need a location to show what's near",
+    "filtersLabel": "Filters"
+  },
+  "filters": {
+    "openNow": "Open now",
+    "today": "Today",
+    "weekend": "This weekend",
+    "free": "Free"
+  },
+  "search": {
+    "title": "Search",
+    "results": "Results for \"{{q}}\"",
+    "emptyTitle": "No pop-ups for \"{{q}}\"",
+    "emptyBody": "Try another word, a city or a category.",
+    "hint": "What are you looking for? Search by name, city or category."
+  },
+  "category": {
+    "title": "{{name}}",
+    "intro": "Every pop-up in this category, nearest first."
   }
 }

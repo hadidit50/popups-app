@@ -25,8 +25,6 @@ export function DesignPreview() {
   const [category, setCategory] = useState<CategorySlug | null>(null);
   const [openNow, setOpenNow] = useState(true);
   const [free, setFree] = useState(false);
-  const [saved, setSaved] = useState<Record<string, boolean>>({});
-  const toggleSave = (id: string) => setSaved((s) => ({ ...s, [id]: !s[id] }));
 
   return (
     <div className={styles.stack}>
@@ -41,14 +39,14 @@ export function DesignPreview() {
           {popups.length === 0
             ? [0, 1].map((i) => <PopupCardSkeleton key={i} variant="compact" />)
             : popups.map((p) => (
-                <PopupCard key={p.id} popup={p} href="/design" variant="compact" saved={!!saved[p.id]} onToggleSave={() => toggleSave(p.id)} />
+                <PopupCard key={p.id} popup={p} href="/design" variant="compact" surface="design" />
               ))}
         </div>
         <div className={styles.grid}>
           {popups.length === 0
             ? [0, 1].map((i) => <PopupCardSkeleton key={i} />)
             : popups.slice(0, 2).map((p) => (
-                <PopupCard key={p.id} popup={p} href="/design" saved={!!saved[p.id]} onToggleSave={() => toggleSave(p.id)} />
+                <PopupCard key={p.id} popup={p} href="/design" surface="design" />
               ))}
         </div>
       </Section>

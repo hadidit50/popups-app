@@ -1,0 +1,37 @@
+.chipRow {
+  display: flex; gap: var(--space-xs); overflow-x: auto; list-style: none;
+  padding: var(--space-xxs) var(--gutter);
+  margin-inline: calc(var(--gutter) * -1);
+  scrollbar-width: none;
+}
+.chipLink {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: var(--touch); padding-inline: var(--space-md);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 0.9375rem; font-weight: 500; white-space: nowrap;
+}
+.chipLink:hover { background: var(--color-surface); }
+.chipLink[aria-current='page'] { background: var(--accent); border-color: var(--accent); color: var(--color-text-inverse); }
+.chipIcon { color: var(--accent); display: inline-flex; }
+.chipLink[aria-current='page'] .chipIcon { color: inherit; }
+
+.search { display: flex; gap: var(--space-xs); }
+.searchField { position: relative; flex: 1; }
+.searchIcon { position: absolute; inset-inline-start: var(--space-sm); top: 50%; transform: translateY(-50%); color: var(--color-text-secondary); pointer-events: none; }
+.searchInput {
+  width: 100%; min-height: 52px;
+  padding-inline: calc(var(--space-sm) + 30px) var(--space-sm);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border-strong);
+  background: var(--color-bg);
+  font: inherit; font-size: 1.0625rem; color: var(--color-text);
+}
+.searchInput::placeholder { color: var(--color-text-secondary); }
+.searchButton {
+  min-height: 52px; padding-inline: var(--space-md);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary); color: var(--color-on-primary); font-weight: 600;
+}
+.filters { display: flex; flex-wrap: wrap; gap: var(--space-xs); }

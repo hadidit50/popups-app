@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import '@fontsource-variable/rubik/wght.css';
 import './globals.css';
 import { AppNav } from '@/components/AppNav';
+import { Providers } from '@/components/Providers';
 import { t } from '@/lib/i18n';
 
 export const metadata: Metadata = {
@@ -29,8 +30,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a href="#main" className="skip-link">
           {t('common.skipToContent')}
         </a>
-        <AppNav />
-        <main id="main">{children}</main>
+        <Providers>
+          <AppNav />
+          <main id="main">{children}</main>
+        </Providers>
       </body>
     </html>
   );

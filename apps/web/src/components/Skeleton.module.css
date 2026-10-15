@@ -4,3 +4,4 @@
 .body { padding: var(--space-md); display: grid; gap: var(--space-xs); }
 .line { height: 1.1rem; border-radius: var(--radius-sm); background: var(--color-surface-pressed); }
 @keyframes pulse { 50% { opacity: 0.6; } }
+.row { display: flex; }
