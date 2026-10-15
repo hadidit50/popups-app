@@ -63,3 +63,10 @@ test('details: approved only', () => {
   assert.equal(demoDetails('emek-refaim-patisserie', now)?.hours.length, 6);
   assert.equal(demoDetails('pending-candle-workshop', now), null);
 });
+
+test('localDateTimeToInstant and back', async () => {
+  const { localDateTimeToInstant, instantToLocalDate } = await import('./time.ts');
+  assert.equal(localDateTimeToInstant('2026-10-14', '18:00', 'Asia/Jerusalem').toISOString(), '2026-10-14T15:00:00.000Z');
+  assert.equal(localDateTimeToInstant('2026-10-30', '00:00', 'Asia/Jerusalem').toISOString(), '2026-10-29T22:00:00.000Z');
+  assert.equal(instantToLocalDate('2026-10-29T22:00:00.000Z', 'Asia/Jerusalem'), '2026-10-30');
+});

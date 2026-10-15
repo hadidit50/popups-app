@@ -71,3 +71,18 @@ export function parseTimeOfDay(value: string): number {
 function pad(n: number): string {
   return n < 10 ? `0${n}` : String(n);
 }
+
+/** "2026-10-14" + "18:00" in `timeZone` → the real instant. DST-safe. */
+export function localDateTimeToInstant(date: string, time: string, timeZone: string): Date {
+  const [y, m, d] = date.split('-').map(Number);
+  const target = Date.UTC(y, m - 1, d) + parseTimeOfDay(time) * MINUTE;
+  let guess = target;
+  for (let i = 0; i < 3; i++) guess = target - (toLocalMs(new Date(guess), timeZone) - guess);
+  return new Date(guess);
+}
+
+/** Instant → "YYYY-MM-DD" in `timeZone` (for date inputs). */
+export function instantToLocalDate(instant: Date | string, timeZone: string): string {
+  const d = new Date(toLocalMs(instant, timeZone));
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
+}

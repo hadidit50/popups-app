@@ -10,6 +10,9 @@ import { PopupCardSkeleton } from '@/components/Skeleton';
 import { SponsoredTag } from '@/components/SponsoredTag';
 import { ErrorState, StateView } from '@/components/StateView';
 import { useNow } from '@/hooks/useNow';
+import { PopupForm } from '@/features/editor/PopupForm';
+import { emptyPopupForm } from '@/lib/popup-editor';
+import { LAUNCH_CITIES } from '@whats-poppin/shared';
 import { t } from '@/lib/i18n';
 import styles from './DesignPreview.module.css';
 
@@ -99,6 +102,15 @@ export function DesignPreview() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section title={t('form.newTitle')}>
+        {now ? <PopupForm
+          initial={emptyPopupForm()}
+          cities={LAUNCH_CITIES.map((c, i) => ({ id: i + 1, slug: c.slug, name_he: t(`cities.${c.slug}`), timezone: null, country_code: c.countryCode }))}
+          mode="organizer"
+          onSaved={() => undefined}
+        /> : null}
       </Section>
 
       <Section title={t('preview.states')}>
