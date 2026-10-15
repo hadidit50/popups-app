@@ -19,7 +19,7 @@ import {
   typography,
   type TextVariant,
 } from '@/ui';
-import { samplePopups } from '@/features/dev/samplePopups';
+import { samplePopups } from '@whats-poppin/shared';
 
 const SWATCHES: (keyof typeof colors)[] = [
   'primary', 'text', 'textSecondary', 'surface', 'statusOpen', 'statusSoon', 'statusNeutral', 'sponsored', 'error',

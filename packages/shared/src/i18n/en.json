@@ -17,7 +17,10 @@
     "loading": "Loading…",
     "sponsored": "Sponsored",
     "free": "Free entry",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "skipToContent": "Skip to content",
+    "mainNav": "Main navigation",
+    "home": "Home"
   },
   "status": {
     "openNow": "Open now",
@@ -34,7 +37,15 @@
     "endsInTwoDays": "Ends in 2 days",
     "endsInDays": "Ends in {{count}} days"
   },
-  "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  "weekdays": [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ],
   "distance": {
     "m": "{{value}} m away",
     "km": "{{value}} km away"
@@ -83,12 +94,12 @@
     "title": "Profile",
     "placeholderTitle": "Your settings are coming soon",
     "placeholderBody": "Pick favorite categories, your home area, notifications, and submit a pop-up for your business.",
-    "devSection": "For developers",
+    "devSection": "System check",
     "uiPreview": "Design system preview",
     "connection": "Server connection"
   },
   "health": {
-    "notConfigured": "Supabase is not configured. Fill in .env.local (see README).",
+    "notConfigured": "Supabase isn't connected yet. See README, step A.",
     "checking": "Checking connection…",
     "ok": "Connected · {{count}} live pop-ups",
     "failed": "Can't reach the server: {{message}}"
@@ -122,6 +133,16 @@
     "sampleTitle": "Florentin Food Market",
     "sampleHeading": "Hot now 🔥",
     "sampleBody": "Street food from young chefs, a DJ and local beer.",
-    "sampleMeta": "1.2 km away · Tel Aviv-Yafo"
+    "sampleMeta": "1.2 km away · Tel Aviv-Yafo",
+    "intro": "Every building block of the site in one place. The sample data here is fixed, not from the server."
+  },
+  "meta": {
+    "title": "WHATS POPPIN – All of Israel's pop-ups",
+    "description": "Food, fashion, markets, art and brand pop-ups near you and across Israel. What's open now, what's on this weekend and what's ending soon."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The pop-up may have ended, or the link is wrong. Head back home to see what's on now.",
+    "action": "Back to home"
   }
 }

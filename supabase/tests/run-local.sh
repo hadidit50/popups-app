@@ -31,12 +31,16 @@ PSQL=(psql -h "$WORK" -p "$PORT" -U postgres -v ON_ERROR_STOP=1 -q -X)
 
 echo "→ shim"
 "${PSQL[@]}" -d app -f "$ROOT/supabase/tests/local_shim.sql"
-for f in "$ROOT"/supabase/migrations/*.sql; do
-  echo "→ $(basename "$f")"
-  "${PSQL[@]}" -d app -f "$f"
-done
-echo "→ seed.sql"
-"${PSQL[@]}" -d app -f "$ROOT/supabase/seed.sql" >/dev/null
+# Test exactly what people paste into the SQL Editor, and make sure it's up to date.
+EXPECTED="$(mktemp)"
+cp "$ROOT/supabase/setup.sql" "$EXPECTED"
+bash "$ROOT/supabase/build-setup.sh" >/dev/null
+if ! diff -q "$EXPECTED" "$ROOT/supabase/setup.sql" >/dev/null; then
+  echo "✗ supabase/setup.sql was out of date — it has been regenerated, commit it." >&2
+  exit 1
+fi
+echo "→ setup.sql (migrations + seed)"
+"${PSQL[@]}" -d app -f "$ROOT/supabase/setup.sql" >/dev/null
 for f in "$ROOT"/supabase/tests/*.test.sql; do
   echo "→ $(basename "$f")"
   "${PSQL[@]}" -d app -f "$f" >/dev/null

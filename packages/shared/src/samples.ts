@@ -1,4 +1,4 @@
-import type { PopupSummary } from '@whats-poppin/shared';
+import type { PopupSummary } from './types.ts';
 
 const DAY = 86_400_000;
 const everyDay = (opens: string, closes: string) =>
@@ -6,7 +6,9 @@ const everyDay = (opens: string, closes: string) =>
 const img = (id: string) => `https://images.unsplash.com/${id}?w=1200&q=75&auto=format&fit=crop`;
 
 /** Offline sample data for the design preview, so it works before Supabase is set up. */
-export function samplePopups(now = Date.now()): PopupSummary[] {
+export function samplePopups(nowMs = Date.now()): PopupSummary[] {
+  // Round to the hour so sample times read naturally ("18:00", not "18:02").
+  const now = Math.floor(nowMs / 3_600_000) * 3_600_000;
   const base = {
     country_code: 'IL',
     timezone: 'Asia/Jerusalem',

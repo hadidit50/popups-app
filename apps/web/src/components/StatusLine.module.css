@@ -1,0 +1,7 @@
+.row { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--space-sm); row-gap: 2px; min-height: 1.25rem; }
+.item { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9375rem; line-height: 1.25rem; font-weight: 500; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: currentColor; flex: none; }
+.open { color: var(--color-open); }
+.soon { color: var(--color-soon); }
+.neutral { color: var(--color-neutral); }
+.placeholder { width: 60%; height: 1rem; border-radius: var(--radius-sm); background: var(--color-surface-pressed); }

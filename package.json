@@ -2,13 +2,15 @@
   "name": "whats-poppin",
   "private": true,
   "workspaces": [
-    "apps/*",
+    "apps/web",
     "packages/*"
   ],
   "scripts": {
-    "mobile": "npm run start --workspace apps/mobile",
+    "dev": "npm run dev --workspace apps/web",
+    "build": "npm run build --workspace apps/web",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "db:test": "bash supabase/tests/run-local.sh"
+    "db:test": "bash supabase/tests/run-local.sh",
+    "db:setup-file": "bash supabase/build-setup.sh"
   }
 }
