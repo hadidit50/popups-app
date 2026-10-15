@@ -28,7 +28,7 @@ export function MapScreen() {
   const [radiusKm, setRadiusKm] = useState<number>(5);
   const [panelOpen, setPanelOpen] = useState(false);
   const [selected, setSelected] = useState<PopupSummary | null>(null);
-  const [focus, setFocus] = useState<{ place: Place; zoom: number; key: number } | null>(null);
+  const [focus, setFocus] = useState<{ place: Place; zoom: number; key: number; bottomInset?: number } | null>(null);
   const wantsNearMe = useRef(false);
 
   const all = useQuery({
@@ -41,13 +41,18 @@ export function MapScreen() {
     enabled: ready && !!place,
   });
 
-  const goTo = (p: Place, km = radiusKm) => setFocus({ place: p, zoom: ZOOM_FOR_RADIUS[km] ?? 12, key: Date.now() });
+  const screenRef = useRef<HTMLDivElement>(null);
+  const goTo = (p: Place, km = radiusKm, panel = panelOpen) => {
+    const height = screenRef.current?.clientHeight ?? 700;
+    const wide = typeof window !== 'undefined' && window.innerWidth >= 900;
+    setFocus({ place: p, zoom: (ZOOM_FOR_RADIUS[km] ?? 12) - (panel && !wide ? 1 : 0), key: Date.now(), bottomInset: panel && !wide ? Math.round(height * 0.6) : 80 });
+  };
 
   // Center on the visitor once their location arrives after tapping "near me".
   useEffect(() => {
     if (place && wantsNearMe.current) {
       wantsNearMe.current = false;
-      goTo(place);
+      goTo(place, radiusKm, true);
       setPanelOpen(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -62,7 +67,7 @@ export function MapScreen() {
   const onNearMe = () => {
     setSelected(null);
     if (state.kind === 'gps' && place) {
-      goTo(place);
+      goTo(place, radiusKm, true);
       setPanelOpen(true);
       return;
     }
@@ -81,7 +86,7 @@ export function MapScreen() {
     : t('map.noLocationTitle');
 
   return (
-    <div className={styles.screen}>
+    <div className={styles.screen} ref={screenRef}>
       <h1 className="visually-hidden">{t('map.title')}</h1>
       <PopupMap popups={all.data ?? []} user={state.kind === 'gps' ? place : null} focus={focus} onSelect={setSelected} />
 

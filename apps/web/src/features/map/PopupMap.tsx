@@ -21,7 +21,7 @@ interface PopupMapProps {
   popups: PopupSummary[];
   user: Place | null;
   /** Fly here when it changes (e.g. after "near me"). */
-  focus: { place: Place; zoom: number; key: number } | null;
+  focus: { place: Place; zoom: number; key: number; bottomInset?: number } | null;
   onSelect: (popup: PopupSummary | null) => void;
 }
 
@@ -52,13 +52,10 @@ export function PopupMap({ popups, user, focus, onSelect }: PopupMapProps) {
     let map: MapLibreMap | null = null;
 
     (async () => {
-      const maplibre = (await import('maplibre-gl')).default;
+      const maplibre = await import('maplibre-gl');
       if (cancelled || !container.current) return;
-      try {
-        if (maplibre.getRTLTextPluginStatus() === 'unavailable') {
-          void maplibre.setRTLTextPlugin('/vendor/mapbox-gl-rtl-text-0.3.0.js', true).catch(() => undefined);
-        }
-      } catch {}
+      // Copied from the package at build time (scripts/copy-map-worker.mjs); version-busted.
+      maplibre.setWorkerUrl(`/vendor/maplibre-gl-worker.mjs?v=${maplibre.getVersion()}`);
 
       let style: string | typeof FALLBACK_STYLE = STYLE_URL;
       try {
@@ -125,6 +122,12 @@ export function PopupMap({ popups, user, focus, onSelect }: PopupMapProps) {
           },
         });
         map.addLayer({
+          id: 'user-halo',
+          type: 'circle',
+          source: 'user',
+          paint: { 'circle-color': 'rgba(37, 99, 235, 0.18)', 'circle-radius': 26, 'circle-stroke-width': 1, 'circle-stroke-color': 'rgba(37, 99, 235, 0.4)' },
+        });
+        map.addLayer({
           id: 'user',
           type: 'circle',
           source: 'user',
@@ -178,7 +181,13 @@ export function PopupMap({ popups, user, focus, onSelect }: PopupMapProps) {
 
   useEffect(() => {
     if (!loaded || !focus) return;
-    mapRef.current?.flyTo({ center: [focus.place.lng, focus.place.lat], zoom: focus.zoom, essential: true });
+    // Keep the target in the part of the map that isn't covered by the list panel.
+    mapRef.current?.flyTo({
+      center: [focus.place.lng, focus.place.lat],
+      zoom: focus.zoom,
+      padding: { top: 60, bottom: focus.bottomInset ?? 80, left: 0, right: 0 },
+      essential: true,
+    });
   }, [focus, loaded]);
 
   return (

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/copy-map-worker.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/copy-map-worker.mjs",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit"
@@ -15,16 +17,18 @@
     "@supabase/supabase-js": "^2.118.0",
     "@tanstack/react-query": "^5.104.3",
     "@whats-poppin/shared": "*",
-    "maplibre-gl": "^5.24.0",
+    "maplibre-gl": "^6.14.0",
     "next": "16.4.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/web-push": "^3.6.4",
     "typescript": "^5"
   }
 }

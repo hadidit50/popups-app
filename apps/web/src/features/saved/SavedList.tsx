@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ButtonLink } from '@/components/Button';
 import { CardList } from '@/components/CardList';
 import { StateView } from '@/components/StateView';
+import { NotificationSettings } from '@/features/notifications/NotificationSettings';
 import { fetchList } from '@/lib/data';
 import { t } from '@/lib/i18n';
 import { useLocation } from '@/lib/location';
@@ -65,6 +66,7 @@ export function SavedList() {
           {pruned === 1 ? t('saved.prunedOne') : t('saved.pruned', { count: pruned })}
         </p>
       ) : null}
+      {mounted && ids.length > 0 ? <NotificationSettings compact /> : null}
       {mounted && ids.length === 0 ? (
         empty
       ) : (

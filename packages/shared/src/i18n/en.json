@@ -469,5 +469,21 @@
     "statsOrganizers": "Businesses",
     "topPopups": "Most viewed this week",
     "loadFailed": "Couldn't load. Try again."
+  },
+  "notifications": {
+    "title": "Reminders",
+    "body": "We'll notify you a day before a saved pop-up ends, so you don't miss it.",
+    "enable": "Turn on reminders",
+    "enabled": "Reminders are on ✓",
+    "disable": "Turn off reminders",
+    "failed": "We couldn't turn on reminders. You can use “Calendar reminder” on any pop-up page.",
+    "iosInstall": "On iPhone, reminders work after adding the site to your Home Screen: Share ⬆️ → “Add to Home Screen”. Until then, use “Calendar reminder” on any pop-up page.",
+    "denied": "Notifications are blocked in your browser. Allow them in site settings, or use “Calendar reminder”.",
+    "unsupported": "This browser doesn't support notifications. Use “Calendar reminder” on any pop-up page.",
+    "savedPromptTitle": "Don't miss out 🔔",
+    "savedPromptBody": "We'll remind you a day before one of your saved pop-ups ends.",
+    "pushTitle": "Ends tomorrow: {{title}}",
+    "pushTitleToday": "Last day today: {{title}}",
+    "pushBody": "You saved this pop-up. Tap for details and directions."
   }
 }
