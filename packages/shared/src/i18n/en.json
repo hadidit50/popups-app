@@ -121,7 +121,12 @@
   "saved": {
     "emptyTitle": "No saved pop-ups yet",
     "emptyBody": "Tap ♡ on any pop-up to save it here. We'll remind you before it ends.",
-    "emptyAction": "Discover pop-ups"
+    "emptyAction": "Discover pop-ups",
+    "title": "Saved",
+    "intro": "Your saved pop-ups, ending soonest first.",
+    "pruned": "{{count}} saved pop-ups ended and were removed.",
+    "prunedOne": "1 saved pop-up ended and was removed.",
+    "localNote": "Saved items live in this browser. Sign in from Profile to see them on other devices."
   },
   "profile": {
     "title": "Profile",
@@ -227,5 +232,53 @@
   "category": {
     "title": "{{name}}",
     "intro": "Every pop-up in this category, nearest first."
+  },
+  "details": {
+    "back": "Back",
+    "navigateWaze": "Navigate with Waze",
+    "navigateGoogle": "Navigate with Google Maps",
+    "navigateApple": "or Apple Maps",
+    "navigateLabel": "Navigate to {{title}} with {{app}}",
+    "save": "Save",
+    "saved": "Saved",
+    "share": "Share",
+    "remind": "Calendar reminder",
+    "remindLabel": "Add a calendar reminder for the last day of {{title}}",
+    "linkCopied": "Link copied. Paste it anywhere.",
+    "where": "Where",
+    "when": "When",
+    "dates": "{{from}} to {{to}}",
+    "hours": "Opening hours",
+    "hoursAllDay": "Open around the clock",
+    "closedDay": "Closed",
+    "today": "Today",
+    "price": "Price",
+    "priceText": {
+      "free": "Free entry",
+      "low": "₪ · Budget",
+      "medium": "₪₪ · Mid-range",
+      "high": "₪₪₪ · Pricey"
+    },
+    "about": "About",
+    "accessibility": "Accessibility",
+    "wheelchair": "Wheelchair accessible",
+    "noWheelchair": "Not wheelchair accessible",
+    "parking": "Parking nearby",
+    "noParking": "No dedicated parking",
+    "kids": "Kid-friendly",
+    "noKids": "Less suited for kids",
+    "unknown": "No info",
+    "links": "Links",
+    "instagram": "Instagram",
+    "website": "Website",
+    "organizer": "Organized by {{name}}",
+    "endedTitle": "This pop-up has ended",
+    "endedBody": "But there's plenty more. Here are other pop-ups in the same category.",
+    "endedAction": "More {{category}}",
+    "notFoundTitle": "We couldn't find this pop-up",
+    "gallery": "Photos of {{title}}",
+    "photoOf": "Photo {{n}} of {{total}}",
+    "calendarTitle": "Last day: {{title}}",
+    "pendingNote": "Pending approval. Only you and admins can see this page."
   }
 }

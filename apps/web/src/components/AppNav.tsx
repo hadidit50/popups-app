@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Suspense } from 'react';
 import { t } from '@/lib/i18n';
 import { Icon, type IconName } from './Icon';
 import styles from './AppNav.module.css';
@@ -19,7 +20,20 @@ function isActive(pathname: string, href: string) {
 
 /** Exactly 4 destinations: bottom tab bar on phones, top links on wide screens. */
 export function AppNav() {
-  const pathname = usePathname() ?? '/';
+  // The current URL isn't known while prerendering dynamic pages: render the nav without
+  // an active tab first, then highlight the right one.
+  return (
+    <Suspense fallback={<AppNavView pathname="" />}>
+      <AppNavWithPath />
+    </Suspense>
+  );
+}
+
+function AppNavWithPath() {
+  return <AppNavView pathname={usePathname() ?? '/'} />;
+}
+
+function AppNavView({ pathname }: { pathname: string }) {
   return (
     <>
       <header className={styles.header}>

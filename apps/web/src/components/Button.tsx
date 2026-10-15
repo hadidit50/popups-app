@@ -48,11 +48,14 @@ export function Button(props: ButtonProps) {
 interface ButtonLinkProps extends CommonProps {
   href: string;
   external?: boolean;
+  onClick?: () => void;
+  'aria-label'?: string;
 }
 
 /** Looks like a button, behaves like a link (navigation). */
 export function ButtonLink(props: ButtonLinkProps) {
-  const { children, icon, href, external } = props;
+  const { children, icon, href, external, onClick } = props;
+  const label = props['aria-label'];
   const content = (
     <>
       {icon ? <Icon name={icon} size={22} /> : null}
@@ -60,11 +63,11 @@ export function ButtonLink(props: ButtonLinkProps) {
     </>
   );
   return external ? (
-    <a className={classes(props)} href={href} target="_blank" rel="noopener noreferrer">
+    <a className={classes(props)} href={href} target="_blank" rel="noopener noreferrer" onClick={onClick} aria-label={label}>
       {content}
     </a>
   ) : (
-    <Link className={classes(props)} href={href}>
+    <Link className={classes(props)} href={href} onClick={onClick} aria-label={label}>
       {content}
     </Link>
   );
