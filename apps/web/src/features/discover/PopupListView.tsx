@@ -9,7 +9,7 @@ import { QuickFilters, type QuickFilter } from '@/components/Discovery';
 import { LocationPill, LocationPrompt } from '@/components/LocationControls';
 import { StateView } from '@/components/StateView';
 import { fetchList } from '@/lib/data';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useLocation } from '@/lib/location';
 import styles from './DiscoverFeed.module.css';
 
@@ -27,6 +27,7 @@ interface PopupListViewProps {
 
 /** A full list ("see all", category, search results) with quick filters and all list states. */
 export function PopupListView({ title, intro, section, baseFilters = {}, surface, hideFilters, requiresLocation, radiusKm }: PopupListViewProps) {
+  const { t } = useI18n();
   const { place, ready } = useLocation();
   const [filters, setFilters] = useState<ListFilters>({});
   const merged = { ...baseFilters, ...filters };

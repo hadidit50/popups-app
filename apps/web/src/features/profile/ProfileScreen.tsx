@@ -10,11 +10,12 @@ import { isIconName } from '@/components/Icon';
 import { ConnectionCheck } from '@/features/dev/ConnectionCheck';
 import { NotificationSettings } from '@/features/notifications/NotificationSettings';
 import { useAuth } from '@/lib/auth';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { loadCities } from '@/lib/popup-editor';
 import { getSupabaseBrowserClient, isSupabaseConfigured } from '@/lib/supabase/client';
 
 export function ProfileScreen() {
+  const { t } = useI18n();
   const { user, isAdmin, loading } = useAuth();
   return (
     <div style={{ display: 'grid', gap: 'var(--space-lg)', maxWidth: '40rem', marginInline: 'auto' }}>
@@ -75,6 +76,7 @@ export function ProfileScreen() {
 }
 
 function AccountActions() {
+  const { t } = useI18n();
   const { signOut } = useAuth();
   return (
     <Button variant="secondary" icon="logout" onClick={() => void signOut()}>
@@ -84,6 +86,7 @@ function AccountActions() {
 }
 
 function Preferences() {
+  const { t, city } = useI18n();
   const { profile, user, refreshProfile } = useAuth();
   const cities = useQuery({ queryKey: ['cities'], queryFn: loadCities, staleTime: Infinity });
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -138,7 +141,7 @@ function Preferences() {
         <option value="">{t('profile.homeAreaNone')}</option>
         {(cities.data ?? []).map((c) => (
           <option key={c.id} value={c.id}>
-            {c.name_he}
+            {city(c.slug, c.name_he)}
           </option>
         ))}
       </SelectField>

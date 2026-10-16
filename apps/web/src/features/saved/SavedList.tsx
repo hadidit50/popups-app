@@ -7,7 +7,7 @@ import { CardList } from '@/components/CardList';
 import { StateView } from '@/components/StateView';
 import { NotificationSettings } from '@/features/notifications/NotificationSettings';
 import { fetchList } from '@/lib/data';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useLocation } from '@/lib/location';
 import { pruneSaved, useSavedIds } from '@/lib/saved';
 import { isSupabaseConfigured } from '@/lib/supabase/client';
@@ -15,6 +15,7 @@ import styles from '../discover/DiscoverFeed.module.css';
 
 /** Saved pop-ups, ending soonest first. Ended ones are cleaned up with a short note. */
 export function SavedList() {
+  const { t } = useI18n();
   const ids = useSavedIds();
   const { place } = useLocation();
   const [mounted, setMounted] = useState(false);

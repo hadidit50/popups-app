@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { LAUNCH_CITIES } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useLocation } from '@/lib/location';
 import { Button } from './Button';
 import { Icon } from './Icon';
@@ -11,6 +11,7 @@ import styles from './LocationControls.module.css';
 
 /** City picker + "use my location", in a sheet. */
 export function LocationSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const { t } = useI18n();
   const { state, requestGps, chooseCity, chooseEverywhere } = useLocation();
   const currentCity = state.kind === 'city' ? state.citySlug : null;
   return (
@@ -59,6 +60,7 @@ export function LocationSheet({ open, onClose }: { open: boolean; onClose: () =>
 
 /** "📍 ליד: תל אביב-יפו · שינוי" — always visible, one tap to change. */
 export function LocationPill() {
+  const { t } = useI18n();
   const { label, state } = useLocation();
   const [open, setOpen] = useState(false);
   const text = state.kind === 'locating' ? t('location.locating') : label ? t('location.near', { place: label }) : t('location.unknown');
@@ -76,6 +78,7 @@ export function LocationPill() {
 
 /** Friendly explanation before asking the browser for location. Falls back to choosing a city. */
 export function LocationPrompt() {
+  const { t } = useI18n();
   const { state, requestGps } = useLocation();
   const [open, setOpen] = useState(false);
   const denied = state.kind === 'denied';

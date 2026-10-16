@@ -1,8 +1,10 @@
-import Link from 'next/link';
+'use client';
+
+import { Link } from '@/components/Link';
 import { CATEGORIES, formatLocalShortDate, toLocalMs, type PopupDetails } from '@whats-poppin/shared';
-import { Icon, isIconName, FORWARD_CHEVRON, type IconName } from '@/components/Icon';
+import { Icon, isIconName, type IconName } from '@/components/Icon';
 import { PopupImage } from '@/components/PopupImage';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { HoursTable, LiveStatus } from './LiveStatus';
 import { PopupActions } from './PopupActions';
 import styles from './PopupDetails.module.css';
@@ -10,6 +12,7 @@ import styles from './PopupDetails.module.css';
 type Props = { popup: PopupDetails & { status?: string } };
 
 function Feature({ value, yes, no, icon }: { value: boolean | null; yes: string; no: string; icon: IconName }) {
+  const { t } = useI18n();
   const known = value !== null && value !== undefined;
   return (
     <li className={value ? styles.yes : styles.no}>
@@ -21,6 +24,7 @@ function Feature({ value, yes, no, icon }: { value: boolean | null; yes: string;
 
 /** The pop-up page. Server-rendered for search engines and link previews; live parts are client islands. */
 export function PopupDetailsView({ popup }: Props) {
+  const { t, forward, back, city } = useI18n();
   const meta = CATEGORIES[popup.category] ?? CATEGORIES.more;
   const images = popup.images.length ? popup.images : [{ url: popup.cover_image_url ?? '', alt: popup.title }];
   const from = formatLocalShortDate(toLocalMs(popup.starts_at, popup.timezone));
@@ -29,7 +33,7 @@ export function PopupDetailsView({ popup }: Props) {
   return (
     <article className={styles.page}>
       <Link href="/" className={styles.back}>
-        <Icon name="arrow-right" size={22} />
+        <Icon name={back} size={22} />
         {t('details.back')}
       </Link>
 
@@ -83,7 +87,7 @@ export function PopupDetailsView({ popup }: Props) {
               {t('details.where')}
             </h2>
             <p className="t-body">{popup.address}</p>
-            <p className="t-meta t-secondary">{popup.city_name}</p>
+            <p className="t-meta t-secondary">{city(popup.city_slug, popup.city_name)}</p>
           </section>
 
           <section className={styles.card} aria-labelledby="when">
@@ -126,14 +130,14 @@ export function PopupDetailsView({ popup }: Props) {
                   <a className="t-body-strong" href={popup.instagram_url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, minHeight: 'var(--touch)', color: 'var(--color-primary)' }}>
                     <Icon name="instagram" size={22} />
                     {t('details.instagram')}
-                    <Icon name={FORWARD_CHEVRON} size={18} />
+                    <Icon name={forward} size={18} />
                   </a>
                 ) : null}
                 {popup.website_url ? (
                   <a className="t-body-strong" href={popup.website_url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, minHeight: 'var(--touch)', color: 'var(--color-primary)' }}>
                     <Icon name="web" size={22} />
                     {t('details.website')}
-                    <Icon name={FORWARD_CHEVRON} size={18} />
+                    <Icon name={forward} size={18} />
                   </a>
                 ) : null}
               </div>

@@ -6,7 +6,7 @@ import { Button } from '@/components/Button';
 import { FilterChip } from '@/components/Chip';
 import { Alert, FormCard, Segmented, SelectField, TextArea, TextField, formStyles } from '@/components/Form';
 import { Icon, isIconName } from '@/components/Icon';
-import { t, tList } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import {
   savePopupForm,
   uploadPopupImage,
@@ -30,6 +30,7 @@ const MAX_IMAGES = 6;
 
 /** One page, five short sections, big controls. Used by businesses and by the admin panel. */
 export function PopupForm({ initial, cities, mode, organizerId, onSaved }: PopupFormProps) {
+  const { t, tList, city: cityName } = useI18n();
   const [v, setV] = useState<PopupFormValues>(initial);
   const [errors, setErrors] = useState<FormErrors>({});
   const [saving, setSaving] = useState(false);
@@ -152,7 +153,7 @@ export function PopupForm({ initial, cities, mode, organizerId, onSaved }: Popup
           <option value="">{t('form.chooseCity')}</option>
           {cities.map((c) => (
             <option key={c.slug} value={c.slug}>
-              {c.name_he}
+              {cityName(c.slug, c.name_he)}
             </option>
           ))}
         </SelectField>

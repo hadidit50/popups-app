@@ -1,5 +1,7 @@
+'use client';
+
 import type { ReactNode } from 'react';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { Icon, type IconName } from './Icon';
 import styles from './StateView.module.css';
 
@@ -28,6 +30,7 @@ export function StateView({ icon, title, body, action, tone = 'neutral' }: State
 
 /** Ready-made error state. Pass the retry button as `action`. */
 export function ErrorState({ offline, action }: { offline?: boolean; action: ReactNode }) {
+  const { t } = useI18n();
   return (
     <StateView
       tone="error"

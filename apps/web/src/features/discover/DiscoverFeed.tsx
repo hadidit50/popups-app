@@ -7,12 +7,13 @@ import { CategoryRow, SearchBox } from '@/components/Discovery';
 import { LocationPill, LocationPrompt } from '@/components/LocationControls';
 import { SectionHeader } from '@/components/SectionHeader';
 import { fetchDiscover } from '@/lib/data';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useLocation } from '@/lib/location';
 import styles from './DiscoverFeed.module.css';
 
 /** The home page: Hot now, Near you, This weekend, Ending soon — each card readable at a glance. */
 export function DiscoverFeed() {
+  const { t } = useI18n();
   const location = useLocation();
   const { place, state, ready } = location;
   const query = useQuery({
@@ -84,6 +85,7 @@ function Section({ id, title, seeAll, children }: { id: string; title: string; s
 }
 
 function NearbyEmpty() {
+  const { t } = useI18n();
   return (
     <div className={styles.nearbyEmpty}>
       <p className="t-heading">{t('discover.nearbyEmptyTitle')}</p>

@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { LAUNCH_CITIES } from '@whats-poppin/shared';
-import { t } from './i18n';
+import { useI18n } from './i18n-client';
 import type { Place } from './data';
 
 /**
@@ -53,6 +53,7 @@ function save(state: LocationState) {
 export function LocationProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<LocationState>({ kind: 'unset' });
   const [ready, setReady] = useState(false);
+  const { t } = useI18n();
 
   useEffect(() => {
     setState(load());
@@ -92,7 +93,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
     const label =
       state.kind === 'gps' ? t('location.myLocation') : state.kind === 'city' ? t(`cities.${state.citySlug}`) : state.kind === 'everywhere' ? t('cities.all') : null;
     return { state, place, label, ready, requestGps, chooseCity, chooseEverywhere };
-  }, [state, ready, requestGps, chooseCity, chooseEverywhere]);
+  }, [state, ready, requestGps, chooseCity, chooseEverywhere, t]);
 
   return <LocationContext.Provider value={value}>{children}</LocationContext.Provider>;
 }

@@ -1,9 +1,10 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/components/Link';
 import { usePathname } from 'next/navigation';
 import { Suspense } from 'react';
-import { t } from '@/lib/i18n';
+import { LANG_COOKIE, LANG_NAMES, LANGS, localePath, splitLangPath, type Lang } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { Icon, type IconName } from './Icon';
 import styles from './AppNav.module.css';
 
@@ -33,7 +34,9 @@ function AppNavWithPath() {
   return <AppNavView pathname={usePathname() ?? '/'} />;
 }
 
-function AppNavView({ pathname }: { pathname: string }) {
+function AppNavView({ pathname: fullPath }: { pathname: string }) {
+  const { t } = useI18n();
+  const pathname = fullPath ? splitLangPath(fullPath).path : '';
   return (
     <>
       <header className={styles.header}>
@@ -59,6 +62,7 @@ function AppNavView({ pathname }: { pathname: string }) {
               })}
             </ul>
           </nav>
+          <LanguageLinks pathname={pathname} />
         </div>
       </header>
 
@@ -78,5 +82,39 @@ function AppNavView({ pathname }: { pathname: string }) {
         </ul>
       </nav>
     </>
+  );
+}
+
+/**
+ * One tap to switch language: the header always shows the *other* languages, each written in its
+ * own script, so a visitor recognizes theirs without knowing the current one.
+ */
+function LanguageLinks({ pathname }: { pathname: string }) {
+  const { t, lang: current } = useI18n();
+  const pick = (lang: Lang) => {
+    document.cookie = `${LANG_COOKIE}=${lang}; path=/; max-age=31536000; samesite=lax`;
+    const { path } = splitLangPath(window.location.pathname);
+    // Full page load: the whole page (text direction included) switches at once.
+    window.location.assign(localePath(lang, path) + window.location.search);
+  };
+  return (
+    <nav aria-label={t('language.label')} className={styles.langs}>
+      <Icon name="web" size={20} />
+      {LANGS.filter((l) => l !== current).map((lang) => (
+        <a
+          key={lang}
+          href={localePath(lang, pathname || '/')}
+          hrefLang={lang}
+          lang={lang}
+          className={styles.lang}
+          onClick={(e) => {
+            e.preventDefault();
+            pick(lang);
+          }}
+        >
+          {LANG_NAMES[lang]}
+        </a>
+      ))}
+    </nav>
   );
 }

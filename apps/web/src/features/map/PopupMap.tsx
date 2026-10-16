@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { GeoJSONSource, Map as MapLibreMap, MapGeoJSONFeature } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { CATEGORIES, COUNTRY_CENTER, type PopupSummary } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import type { Place } from '@/lib/data';
 import styles from './MapScreen.module.css';
 
@@ -38,6 +38,7 @@ function toGeoJSON(popups: PopupSummary[]) {
 
 /** Clustered, category-colored markers. Sponsored places get a bigger marker with a purple ring. */
 export function PopupMap({ popups, user, focus, onSelect }: PopupMapProps) {
+  const { t } = useI18n();
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const popupsRef = useRef(popups);

@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from 'react';
 import { CATEGORIES, type CategorySlug } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { Icon, isIconName, type IconName } from './Icon';
 import styles from './Chip.module.css';
 
@@ -46,6 +46,7 @@ export function CategoryChip({
   selected?: boolean;
   onToggle: () => void;
 }) {
+  const { t } = useI18n();
   const meta = slug ? CATEGORIES[slug] : null;
   const icon = meta && isIconName(meta.icon) ? meta.icon : 'view-grid-outline';
   return (

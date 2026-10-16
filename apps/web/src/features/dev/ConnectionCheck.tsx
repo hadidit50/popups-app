@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { Icon, type IconName } from '@/components/Icon';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { getSupabaseBrowserClient, isSupabaseConfigured } from '@/lib/supabase/client';
 
 type State = { kind: 'checking' } | { kind: 'ok'; count: number } | { kind: 'failed'; message: string } | { kind: 'notConfigured' };
 
 /** Confirms the site can reach Supabase and read the live pop-ups. */
 export function ConnectionCheck() {
+  const { t } = useI18n();
   const [state, setState] = useState<State>(isSupabaseConfigured ? { kind: 'checking' } : { kind: 'notConfigured' });
 
   useEffect(() => {
