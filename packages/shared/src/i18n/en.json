@@ -313,11 +313,12 @@
     "sendFailed": "We couldn't send an email right now. Try again in a minute.",
     "notConfigured": "Sign-in will work once the site is connected to Supabase.",
     "signingIn": "Signing you in…",
-    "callbackFailed": "That link didn't work, maybe it was already used. Request a new code.",
+    "callbackFailed": "The link didn't work. This happens when it's opened in a different browser from the one you asked from, or when it was already used. Easiest: type the code from the email, or ask for a new one.",
     "signOut": "Sign out",
     "signedInAs": "Signed in as {{email}}",
     "signIn": "Sign in or sign up",
-    "spamHint": "Can't see the email? Check your spam folder too."
+    "spamHint": "Can't see the email? Check your spam folder too.",
+    "newCode": "Get a new code"
   },
   "business": {
     "title": "For businesses",

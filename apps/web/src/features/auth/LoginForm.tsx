@@ -3,7 +3,8 @@
 import { useSearchParams } from 'next/navigation';
 import { useLocalRouter } from '@/lib/router';
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/Button';
+import type { EmailOtpType } from '@supabase/supabase-js';
+import { Button, ButtonLink } from '@/components/Button';
 import { Alert, FormCard, TextField } from '@/components/Form';
 import { useAuth } from '@/lib/auth';
 import { useI18n } from '@/lib/i18n-client';
@@ -127,7 +128,11 @@ export function LoginForm() {
   );
 }
 
-/** Landing page for the link in the sign-in email. */
+/**
+ * Landing page for the link in the sign-in email. Two kinds of links:
+ * - `token_hash` (our email template): works in any browser, even if the email is opened elsewhere.
+ * - `code` (Supabase's default email): only works in the browser where the code was requested.
+ */
 export function AuthCallback() {
   const { t } = useI18n();
   const router = useLocalRouter();
@@ -135,16 +140,38 @@ export function AuthCallback() {
   const [failed, setFailed] = useState(false);
   useEffect(() => {
     const supabase = getSupabaseBrowserClient();
+    const nextParam = params.get('next') ?? '/profile';
+    const next = nextParam.startsWith('/') && !nextParam.startsWith('//') ? nextParam : '/profile';
+    const tokenHash = params.get('token_hash');
     const code = params.get('code');
-    const next = params.get('next') ?? '/profile';
-    if (!supabase || !code) {
+    if (!supabase || (!tokenHash && !code)) {
       setFailed(true);
       return;
     }
-    void supabase.auth.exchangeCodeForSession(code).then(({ error }) => {
-      if (error) setFailed(true);
-      else router.replace(next.startsWith('/') && !next.startsWith('//') ? next : '/profile');
-    });
+    let cancelled = false;
+    void (async () => {
+      const { error } = tokenHash
+        ? await supabase.auth.verifyOtp({ token_hash: tokenHash, type: (params.get('type') as EmailOtpType | null) ?? 'email' })
+        : await supabase.auth.exchangeCodeForSession(code!);
+      if (cancelled) return;
+      if (!error) return router.replace(next);
+      // A link opened twice still counts if the first attempt already signed the visitor in.
+      const { data } = await supabase.auth.getSession();
+      if (cancelled) return;
+      if (data.session && !data.session.user.is_anonymous) router.replace(next);
+      else setFailed(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [params, router]);
-  return failed ? <Alert tone="error">{t('auth.callbackFailed')}</Alert> : <Alert tone="info">{t('auth.signingIn')}</Alert>;
+  if (!failed) return <Alert tone="info">{t('auth.signingIn')}</Alert>;
+  return (
+    <div style={{ display: 'grid', gap: 'var(--space-md)' }}>
+      <Alert tone="error">{t('auth.callbackFailed')}</Alert>
+      <ButtonLink href="/login" icon="email-outline" fullWidth>
+        {t('auth.newCode')}
+      </ButtonLink>
+    </div>
+  );
 }
