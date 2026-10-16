@@ -10,7 +10,7 @@ import { LocationPrompt } from '@/components/LocationControls';
 import { PopupCard } from '@/components/PopupCard';
 import { StateView } from '@/components/StateView';
 import { fetchList, type Place } from '@/lib/data';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useLocation } from '@/lib/location';
 import { PopupMap } from './PopupMap';
 import styles from './MapScreen.module.css';
@@ -23,6 +23,7 @@ const ZOOM_FOR_RADIUS: Record<number, number> = { 1: 14.5, 5: 12.5, 10: 11.5, 25
  * everything on the map is also reachable without the map (screen readers, small screens).
  */
 export function MapScreen() {
+  const { t, dir } = useI18n();
   const { place, state, ready, requestGps } = useLocation();
   const [filters, setFilters] = useState<ListFilters>({});
   const [radiusKm, setRadiusKm] = useState<number>(5);
@@ -113,7 +114,7 @@ export function MapScreen() {
           <span>{summary}</span>
           <span className={styles.handleHint}>
             {panelOpen ? t('map.listToggleHide') : t('map.listToggleShow')}
-            <Icon name={panelOpen ? 'chevron-right' : 'format-list-bulleted'} size={20} />
+            <Icon name={panelOpen ? (dir === 'rtl' ? 'chevron-right' : 'chevron-left') : 'format-list-bulleted'} size={20} />
           </span>
         </button>
         {panelOpen ? (

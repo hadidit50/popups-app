@@ -8,21 +8,25 @@ import { CardList } from '@/components/CardList';
 import { SearchBox } from '@/components/Discovery';
 import { StateView } from '@/components/StateView';
 import { fetchList } from '@/lib/data';
-import { t } from '@/lib/i18n';
+import { getTranslator, LANGS } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useLocation } from '@/lib/location';
 import styles from './DiscoverFeed.module.css';
 
-/** Categories whose Hebrew (or English) name matches the query, e.g. "אוכל" → food. */
+/** Categories whose name in any of our languages matches the query, e.g. "אוכל" / "طعام" / "food" → food. */
 function matchCategories(q: string): CategorySlug[] {
   const needle = q.trim().toLowerCase();
   if (needle.length < 2) return [];
-  return CATEGORY_SLUGS.filter((slug) => {
-    const name = t(`categories.${slug}`).toLowerCase();
-    return name.includes(needle) || needle.includes(name) || slug.includes(needle);
-  });
+  return CATEGORY_SLUGS.filter((slug) =>
+    LANGS.some((lang) => {
+      const name = getTranslator(lang).t(`categories.${slug}`).toLowerCase();
+      return name.includes(needle) || needle.includes(name) || slug.includes(needle);
+    }),
+  );
 }
 
 export function SearchResults() {
+  const { t } = useI18n();
   const q = useSearchParams().get('q')?.trim() ?? '';
   const { place, ready } = useLocation();
   const query = useQuery({

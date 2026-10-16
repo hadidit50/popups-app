@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react';
 import type { PopupSummary } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { Button } from './Button';
 import { PopupCard } from './PopupCard';
 import { PopupCardSkeleton } from './Skeleton';
@@ -23,6 +23,7 @@ interface CardListProps {
 
 /** A list of pop-up cards with built-in loading, error and empty states. */
 export function CardList({ items, loading, error, onRetry, layout, surface, empty, skeletons = 3 }: CardListProps) {
+  const { t } = useI18n();
   const variant = layout === 'carousel' ? 'compact' : layout === 'rows' ? 'row' : 'large';
   const className = layout === 'carousel' ? styles.carousel : layout === 'rows' ? styles.rows : styles.grid;
 

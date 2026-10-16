@@ -13,7 +13,7 @@ import { useNow } from '@/hooks/useNow';
 import { PopupForm } from '@/features/editor/PopupForm';
 import { emptyPopupForm } from '@/lib/popup-editor';
 import { LAUNCH_CITIES } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import styles from './DesignPreview.module.css';
 
 const SWATCHES = ['primary', 'text', 'text-secondary', 'surface', 'open', 'soon', 'neutral', 'sponsored', 'error'];
@@ -21,6 +21,7 @@ const TYPE_SCALE = ['t-display', 't-title', 't-heading', 't-body', 't-body-stron
 
 /** Living style guide: every design-system piece on one page, in Hebrew RTL. */
 export function DesignPreview() {
+  const { t } = useI18n();
   // Sample dates are relative to the visitor's clock, so they are built after the page loads.
   const now = useNow(60 * 60_000);
   const nowMs = now?.getTime();

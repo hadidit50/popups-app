@@ -485,5 +485,8 @@
     "pushTitle": "Ends tomorrow: {{title}}",
     "pushTitleToday": "Last day today: {{title}}",
     "pushBody": "You saved this pop-up. Tap for details and directions."
+  },
+  "language": {
+    "label": "Language"
   }
 }

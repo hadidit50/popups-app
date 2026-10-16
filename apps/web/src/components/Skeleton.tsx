@@ -1,8 +1,11 @@
-import { t } from '@/lib/i18n';
+'use client';
+
+import { useI18n } from '@/lib/i18n-client';
 import styles from './Skeleton.module.css';
 
 /** Card-shaped loading placeholder, so the layout doesn't jump when content arrives. */
 export function PopupCardSkeleton({ variant = 'large' }: { variant?: 'large' | 'compact' | 'row' }) {
+  const { t } = useI18n();
   if (variant === 'row') {
     return (
       <div className={`${styles.card} ${styles.row}`} role="status" aria-label={t('common.loading')}>

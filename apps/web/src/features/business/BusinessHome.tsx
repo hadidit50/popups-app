@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/components/Link';
 import { useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, ButtonLink } from '@/components/Button';
@@ -8,7 +8,7 @@ import { Alert, FormCard, TextField } from '@/components/Form';
 import { Icon } from '@/components/Icon';
 import { PopupCardSkeleton } from '@/components/Skeleton';
 import { useAuth } from '@/lib/auth';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
 import { SignedInGate } from './Gate';
 import { useOrganizer } from './useOrganizer';
@@ -25,6 +25,7 @@ interface OwnPopup {
 }
 
 export function BusinessHome({ notice }: { notice?: 'submitted' | 'updated' | null }) {
+  const { t } = useI18n();
   return (
     <SignedInGate next="/business" title={t('business.signInTitle')} body={t('business.signInBody')}>
       <BusinessInner notice={notice} />
@@ -33,6 +34,7 @@ export function BusinessHome({ notice }: { notice?: 'submitted' | 'updated' | nu
 }
 
 function BusinessInner({ notice }: { notice?: 'submitted' | 'updated' | null }) {
+  const { t } = useI18n();
   const organizer = useOrganizer();
   if (organizer.isPending) return <PopupCardSkeleton variant="row" />;
   if (organizer.error) return <Alert tone="error">{t('admin.loadFailed')}</Alert>;
@@ -53,6 +55,7 @@ function BusinessInner({ notice }: { notice?: 'submitted' | 'updated' | null }) 
 }
 
 function SetupBusiness() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const qc = useQueryClient();
   const [name, setName] = useState('');
@@ -97,6 +100,7 @@ function SetupBusiness() {
 }
 
 function OwnPopups({ organizerId }: { organizerId: string }) {
+  const { t } = useI18n();
   const query = useQuery({
     queryKey: ['own-popups', organizerId],
     queryFn: async () => {
@@ -122,6 +126,7 @@ function OwnPopups({ organizerId }: { organizerId: string }) {
 }
 
 function OwnPopupRow({ popup }: { popup: OwnPopup }) {
+  const { t } = useI18n();
   const ended = new Date(popup.ends_at) < new Date();
   const status = ended ? 'ended' : popup.status;
   const stats = useQuery({

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, type ReactNode } from 'react';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { Icon } from './Icon';
 import styles from './Sheet.module.css';
 
@@ -18,6 +18,7 @@ interface SheetProps {
  * Esc closes it and screen readers announce it as a dialog.
  */
 export function Sheet({ open, onClose, title, description, children }: SheetProps) {
+  const { t } = useI18n();
   const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { PopupDetails } from '@whats-poppin/shared';
 import { Icon } from '@/components/Icon';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useIsSaved } from '@/lib/saved';
 import { track } from '@/lib/track';
 import { lastDayReminderIcs } from './calendar';
@@ -16,6 +16,7 @@ import styles from './PopupDetails.module.css';
  * From the home page that's 2 taps to navigation: card → "ניווט".
  */
 export function PopupActions({ popup }: { popup: PopupDetails }) {
+  const { t } = useI18n();
   const [saved, toggleSaved] = useIsSaved(popup.id);
   const [toast, setToast] = useState<string | null>(null);
   const [isApple, setIsApple] = useState(false);

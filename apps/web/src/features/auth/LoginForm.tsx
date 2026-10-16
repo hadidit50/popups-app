@@ -1,16 +1,18 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { useLocalRouter } from '@/lib/router';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/Button';
 import { Alert, FormCard, TextField } from '@/components/Form';
 import { useAuth } from '@/lib/auth';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { getSupabaseBrowserClient, isSupabaseConfigured } from '@/lib/supabase/client';
 
 /** Sign in / sign up in one step: email → code (or the link in the email). No passwords. */
 export function LoginForm() {
-  const router = useRouter();
+  const { t, href } = useI18n();
+  const router = useLocalRouter();
   const next = useSearchParams().get('next') || '/profile';
   const safeNext = next.startsWith('/') && !next.startsWith('//') ? next : '/profile';
   const { user } = useAuth();
@@ -36,7 +38,7 @@ export function LoginForm() {
     const supabase = getSupabaseBrowserClient()!;
     const { error: err } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(safeNext)}` },
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(href(safeNext))}` },
     });
     setBusy(false);
     if (err) setError(t('auth.sendFailed'));
@@ -127,7 +129,8 @@ export function LoginForm() {
 
 /** Landing page for the link in the sign-in email. */
 export function AuthCallback() {
-  const router = useRouter();
+  const { t } = useI18n();
+  const router = useLocalRouter();
   const params = useSearchParams();
   const [failed, setFailed] = useState(false);
   useEffect(() => {

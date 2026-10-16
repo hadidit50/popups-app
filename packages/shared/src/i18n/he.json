@@ -485,5 +485,8 @@
     "pushTitle": "מחר זה נגמר: {{title}}",
     "pushTitleToday": "היום יום אחרון: {{title}}",
     "pushBody": "שמרת את הפופ-אפ הזה. לחצו לפרטים ולניווט."
+  },
+  "language": {
+    "label": "שפה"
   }
 }

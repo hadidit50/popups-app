@@ -3,10 +3,11 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/Button';
 import { Alert, FormCard } from '@/components/Form';
-import { t } from '@/lib/i18n';
+import type { I18n } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { disablePush, enablePush, isPushEnabled, pushSupport, type PushSupport } from '@/lib/push';
 
-function supportMessage(s: PushSupport): string | null {
+function supportMessage(t: I18n['t'], s: PushSupport): string | null {
   if (s === 'ios-needs-install') return t('notifications.iosInstall');
   if (s === 'denied') return t('notifications.denied');
   if (s === 'unsupported') return t('notifications.unsupported');
@@ -15,6 +16,7 @@ function supportMessage(s: PushSupport): string | null {
 
 /** On/off for "remind me before a saved pop-up ends". Asks the browser only after a tap. */
 export function NotificationSettings({ compact = false }: { compact?: boolean }) {
+  const { t } = useI18n();
   const [support, setSupport] = useState<PushSupport | null>(null);
   const [enabled, setEnabled] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -29,7 +31,7 @@ export function NotificationSettings({ compact = false }: { compact?: boolean })
   if (!support || support === 'unconfigured') return null;
   if (compact && (enabled || support !== 'available')) return null;
 
-  const message = supportMessage(support);
+  const message = supportMessage(t, support);
   const content = (
     <>
       <p className="t-body">{compact ? t('notifications.savedPromptBody') : t('notifications.body')}</p>

@@ -1,16 +1,17 @@
 'use client';
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { Link } from '@/components/Link';
+import { useLocalRouter } from '@/lib/router';
 import { useState, type CSSProperties } from 'react';
 import { CATEGORY_LIST, type ListFilters } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { FilterChip } from './Chip';
 import { Icon, isIconName } from './Icon';
 import styles from './Discovery.module.css';
 
 /** Category shortcuts: each opens that category's page. */
 export function CategoryRow({ current }: { current?: string }) {
+  const { t } = useI18n();
   return (
     <nav aria-label={t('discover.categoriesLabel')}>
       <ul className={styles.chipRow}>
@@ -34,7 +35,8 @@ export function CategoryRow({ current }: { current?: string }) {
 
 /** Search field. Submitting opens /search?q=… */
 export function SearchBox({ initial = '' }: { initial?: string }) {
-  const router = useRouter();
+  const { t } = useI18n();
+  const router = useLocalRouter();
   const [q, setQ] = useState(initial);
   return (
     <form
@@ -85,6 +87,7 @@ export function QuickFilters({
   onChange: (next: ListFilters) => void;
   hide?: QuickFilter[];
 }) {
+  const { t } = useI18n();
   return (
     <div className={styles.filters} role="group" aria-label={t('list.filtersLabel')}>
       {QUICK_FILTERS.filter((f) => !hide.includes(f.key)).map((f) => (

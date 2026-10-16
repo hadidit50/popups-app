@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
-import { t } from '@/lib/i18n';
+import { DEFAULT_LANG, getTranslator } from '@/lib/i18n';
+
+const { t } = getTranslator(DEFAULT_LANG);
 
 /** Lets visitors "Add to Home Screen" and open the site like an app. */
 export default function manifest(): MetadataRoute.Manifest {

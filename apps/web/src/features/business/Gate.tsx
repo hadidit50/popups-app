@@ -6,11 +6,12 @@ import { Alert } from '@/components/Form';
 import { PopupCardSkeleton } from '@/components/Skeleton';
 import { StateView } from '@/components/StateView';
 import { useAuth } from '@/lib/auth';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { isSupabaseConfigured } from '@/lib/supabase/client';
 
 /** Shows children only to signed-in users; explains why sign-in is needed otherwise. */
 export function SignedInGate({ next, title, body, children }: { next: string; title: string; body: string; children: ReactNode }) {
+  const { t } = useI18n();
   const { user, loading } = useAuth();
   if (!isSupabaseConfigured) return <Alert tone="info">{t('auth.notConfigured')}</Alert>;
   if (loading) return <PopupCardSkeleton variant="row" />;

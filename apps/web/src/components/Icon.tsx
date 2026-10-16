@@ -6,6 +6,7 @@ import {
   mdiAlertCircle,
   mdiAlertCircleOutline,
   mdiApple,
+  mdiArrowLeft,
   mdiArrowRight,
   mdiBabyCarriage,
   mdiBellOutline,
@@ -92,6 +93,7 @@ const ICONS = {
   'alert-circle': mdiAlertCircle,
   'alert-circle-outline': mdiAlertCircleOutline,
   apple: mdiApple,
+  'arrow-left': mdiArrowLeft,
   'arrow-right': mdiArrowRight,
   'baby-carriage': mdiBabyCarriage,
   'bell-outline': mdiBellOutline,
@@ -181,9 +183,6 @@ interface IconProps {
   color?: string;
   className?: string;
 }
-
-/** "Forward" in a right-to-left page points left. */
-export const FORWARD_CHEVRON: IconName = 'chevron-left';
 
 /** Decorative by default: the surrounding control carries the accessible name. */
 export function Icon({ name, size = 24, color = 'currentColor', className }: IconProps) {

@@ -1,7 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { Link } from '@/components/Link';
+import { useSearchParams } from 'next/navigation';
+import { useLocalRouter } from '@/lib/router';
 import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, ButtonLink } from '@/components/Button';
@@ -12,7 +13,8 @@ import { StateView } from '@/components/StateView';
 import { SignedInGate } from '@/features/business/Gate';
 import { PopupForm } from '@/features/editor/PopupForm';
 import { useAuth } from '@/lib/auth';
-import { t } from '@/lib/i18n';
+import { INTL_LOCALE } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { emptyPopupForm, loadCities, loadPopupForm } from '@/lib/popup-editor';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
 import styles from './Admin.module.css';
@@ -24,6 +26,7 @@ const db = () => getSupabaseBrowserClient()!;
 
 /** The admin panel: one page, five tabs. Built for adding many pop-ups quickly from a laptop. */
 export function AdminApp() {
+  const { t } = useI18n();
   return (
     <SignedInGate next="/admin" title={t('admin.title')} body={t('admin.notAdminBody')}>
       <AdminGuard />
@@ -32,6 +35,7 @@ export function AdminApp() {
 }
 
 function AdminGuard() {
+  const { t } = useI18n();
   const { isAdmin, loading } = useAuth();
   if (loading) return <PopupCardSkeleton variant="row" />;
   if (!isAdmin) return <StateView icon="shield-account-outline" title={t('admin.notAdminTitle')} body={t('admin.notAdminBody')} />;
@@ -39,6 +43,7 @@ function AdminGuard() {
 }
 
 function AdminTabs() {
+  const { t } = useI18n();
   const params = useSearchParams();
   const tab = (params.get('tab') as Tab) || 'queue';
   return (
@@ -83,6 +88,7 @@ interface AdminPopupRow {
 const SELECT = 'id, slug, title, status, needs_review, source, starts_at, ends_at, address, organizers(name)';
 
 function Queue() {
+  const { t } = useI18n();
   const qc = useQueryClient();
   const query = useQuery({
     queryKey: ['admin', 'queue'],
@@ -138,6 +144,7 @@ function QueueItem({
   onReject: (reason: string) => void;
   onReviewed: () => void;
 }) {
+  const { t } = useI18n();
   const [rejecting, setRejecting] = useState(false);
   const [reason, setReason] = useState('');
   const edited = popup.status === 'approved' && popup.needs_review;
@@ -194,6 +201,7 @@ function QueueItem({
 // All pop-ups
 // ---------------------------------------------------------------------------
 function AllPopups() {
+  const { t } = useI18n();
   const qc = useQueryClient();
   const [q, setQ] = useState('');
   const [showEnded, setShowEnded] = useState(false);
@@ -275,7 +283,8 @@ function AllPopups() {
 // Add / edit
 // ---------------------------------------------------------------------------
 function AdminEditor({ id }: { id?: string | null }) {
-  const router = useRouter();
+  const { t } = useI18n();
+  const router = useLocalRouter();
   const qc = useQueryClient();
   const [done, setDone] = useState<string | null>(null);
   const cities = useQuery({ queryKey: ['cities'], queryFn: loadCities, staleTime: Infinity });
@@ -335,6 +344,7 @@ interface PromotionRow {
 }
 
 function Promotions() {
+  const { t, lang } = useI18n();
   const qc = useQueryClient();
   const list = useQuery({
     queryKey: ['admin', 'promotions'],
@@ -377,7 +387,7 @@ function Promotions() {
                   <span className={`${styles.status} ${live ? styles.approved : styles.ended}`}>{t(`admin.promoStatus.${p.status}`)}</span>
                 </div>
                 <p className="t-meta t-secondary">
-                  {t(`admin.placements.${p.placement}`)} · {new Date(p.starts_at).toLocaleDateString('he-IL')}–{new Date(p.ends_at).toLocaleDateString('he-IL')} · ₪
+                  {t(`admin.placements.${p.placement}`)} · {new Date(p.starts_at).toLocaleDateString(INTL_LOCALE[lang])}–{new Date(p.ends_at).toLocaleDateString(INTL_LOCALE[lang])} · ₪
                   {p.budget_amount}
                 </p>
                 <dl className={styles.miniStats}>
@@ -415,6 +425,7 @@ function Promotions() {
 }
 
 function NewPromotion({ onCreated }: { onCreated: () => void }) {
+  const { t } = useI18n();
   const today = new Date().toISOString().slice(0, 10);
   const [popupId, setPopupId] = useState('');
   const [placement, setPlacement] = useState<PromotionRow['placement']>('hot_now');
@@ -515,6 +526,7 @@ interface AdminStats {
 }
 
 function Stats() {
+  const { t, lang } = useI18n();
   const query = useQuery({
     queryKey: ['admin', 'stats'],
     queryFn: async () => {
@@ -540,7 +552,7 @@ function Stats() {
         {tiles.map(([label, value]) => (
           <div key={label} className={styles.tile}>
             <dt>{t(label)}</dt>
-            <dd>{value.toLocaleString('he-IL')}</dd>
+            <dd>{value.toLocaleString(INTL_LOCALE[lang])}</dd>
           </div>
         ))}
       </dl>

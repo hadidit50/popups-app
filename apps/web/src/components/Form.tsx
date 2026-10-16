@@ -1,7 +1,7 @@
 'use client';
 
 import { useId, type InputHTMLAttributes, type ReactNode, type SelectHTMLAttributes, type TextareaHTMLAttributes } from 'react';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { Icon } from './Icon';
 import styles from './Form.module.css';
 
@@ -13,6 +13,7 @@ interface FieldProps {
 }
 
 function FieldShell({ label, hint, error, optional, id, children }: FieldProps & { id: string; children: ReactNode }) {
+  const { t } = useI18n();
   return (
     <div className={styles.field}>
       <label htmlFor={id} className={styles.label}>

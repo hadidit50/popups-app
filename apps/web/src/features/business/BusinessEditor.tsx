@@ -1,18 +1,20 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { useLocalRouter } from '@/lib/router';
 import { useQuery } from '@tanstack/react-query';
 import { ButtonLink } from '@/components/Button';
 import { Alert } from '@/components/Form';
 import { PopupCardSkeleton } from '@/components/Skeleton';
 import { PopupForm } from '@/features/editor/PopupForm';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { emptyPopupForm, loadCities, loadPopupForm } from '@/lib/popup-editor';
 import { SignedInGate } from './Gate';
 import { useOrganizer } from './useOrganizer';
 
 /** New / edit pop-up for organizers. New submissions always go to the approval queue. */
 export function BusinessEditor({ mode }: { mode: 'new' | 'edit' }) {
+  const { t } = useI18n();
   return (
     <SignedInGate next={mode === 'new' ? '/business/new' : '/business'} title={t('business.signInTitle')} body={t('business.signInBody')}>
       <Inner mode={mode} />
@@ -21,7 +23,8 @@ export function BusinessEditor({ mode }: { mode: 'new' | 'edit' }) {
 }
 
 function Inner({ mode }: { mode: 'new' | 'edit' }) {
-  const router = useRouter();
+  const { t } = useI18n();
+  const router = useLocalRouter();
   const id = useSearchParams().get('id');
   const organizer = useOrganizer();
   const cities = useQuery({ queryKey: ['cities'], queryFn: loadCities, staleTime: Infinity });

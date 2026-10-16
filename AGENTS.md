@@ -4,8 +4,10 @@
 
 ## Rules
 - The product is the **website** in `apps/web` (Next.js 16, App Router, Cache Components). `apps/mobile` (Expo) is parked and not in the npm workspaces.
-- Every user-facing string lives in `packages/shared/src/i18n/he.json` (Hebrew first), read via `t()` from `apps/web/src/lib/i18n.ts`. No literals in components.
-- The site is always RTL (`<html dir="rtl">`). Use logical CSS (`inset-inline-start`, `margin-inline`, `padding-inline`), never left/right. "Forward" chevrons use `FORWARD_CHEVRON`.
+- The site speaks Hebrew (default, short URLs like `/map`), Arabic (`/ar/map`) and English (`/en/map`). Pages live under `app/[lang]`; `src/proxy.ts` maps the short Hebrew URLs and remembers the visitor's choice (cookie `lang`).
+- Every user-facing string lives in `packages/shared/src/i18n/{he,ar,en}.json` (same keys in all three; `npm test` checks it). Client components: `const { t } = useI18n()` (`lib/i18n-client`). Server components: `const { t } = await getI18n()` (`lib/i18n-server`). No literals in components.
+- Internal links use `Link`/`ButtonLink` from `@/components` and `useLocalRouter()`, which keep the visitor in their language. Never import `next/link` directly.
+- Hebrew and Arabic are RTL, English is LTR. Use logical CSS (`inset-inline-start`, `margin-inline`, `padding-inline`), never left/right. Directional icons come from `useI18n()` (`forward`, `back`).
 - Colors/sizes come from the CSS tokens in `apps/web/src/app/globals.css`. Keep WCAG AA contrast. Font sizes in rem, never below 15px.
 - Every interactive element is a real `<button>`/`<a>`, at least 48×48 (`var(--touch)`), with an accessible name.
 - Anything time-dependent ("open now") is computed on the client from the visitor's clock (`useNow`), never during prerender.

@@ -50,7 +50,7 @@
   /* Minimum touch target */
   --touch: 48px;
 
-  --font: 'Rubik Variable', 'Rubik', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font: 'Rubik Variable', 'Rubik', 'Noto Sans Arabic Variable', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
 
   --shadow-card: 0 4px 12px rgb(0 0 0 / 0.08);
   --shadow-floating: 0 6px 16px rgb(0 0 0 / 0.18);

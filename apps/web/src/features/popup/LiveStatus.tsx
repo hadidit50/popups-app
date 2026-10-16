@@ -4,15 +4,17 @@ import { localWeekday, toLocalMs, type OpeningHoursRow, type PopupDetails } from
 import { ButtonLink } from '@/components/Button';
 import { StatusLine } from '@/components/StatusLine';
 import { useNow } from '@/hooks/useNow';
-import { t, tList } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { popupStatusText } from '@/lib/status';
 import styles from './PopupDetails.module.css';
 
 /** Status in words, from the visitor's clock. Ended pop-ups get a friendly banner instead. */
 export function LiveStatus({ popup }: { popup: PopupDetails }) {
+  const i18n = useI18n();
+  const { t } = i18n;
   const now = useNow();
   const text = now
-    ? popupStatusText({ startsAt: popup.starts_at, endsAt: popup.ends_at, timezone: popup.timezone, hours: popup.hours }, now)
+    ? popupStatusText(i18n, { startsAt: popup.starts_at, endsAt: popup.ends_at, timezone: popup.timezone, hours: popup.hours }, now)
     : null;
   if (text?.status.state === 'ended') {
     const category = t(`categories.${popup.category}`);
@@ -31,6 +33,7 @@ export function LiveStatus({ popup }: { popup: PopupDetails }) {
 
 /** Weekly hours with today highlighted (in the pop-up's timezone). */
 export function HoursTable({ hours, timezone }: { hours: OpeningHoursRow[]; timezone: string }) {
+  const { t, tList } = useI18n();
   const now = useNow();
   const today = now ? localWeekday(toLocalMs(now, timezone)) : -1;
   const names = tList('weekdays');

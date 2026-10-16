@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/components/Link';
 import { useEffect, useRef } from 'react';
 import { CATEGORIES, type PopupSummary } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { useI18n } from '@/lib/i18n-client';
 import { useIsSaved } from '@/lib/saved';
 import { formatDistance, popupStatusText } from '@/lib/status';
 import { track } from '@/lib/track';
@@ -31,6 +31,8 @@ export interface PopupCardProps {
  * image, name, category, distance (or city), status in words, and the "Sponsored" tag.
  */
 export function PopupCard({ popup, href = `/p/${popup.slug}`, variant = 'large', surface, showSave = true }: PopupCardProps) {
+  const i18n = useI18n();
+  const { t } = i18n;
   const now = useNow();
   const [saved, toggleSaved] = useIsSaved(popup.id);
   const ref = useRef<HTMLElement>(null);
@@ -57,10 +59,10 @@ export function PopupCard({ popup, href = `/p/${popup.slug}`, variant = 'large',
     toggleSaved();
   };
   const status = now
-    ? popupStatusText({ startsAt: popup.starts_at, endsAt: popup.ends_at, timezone: popup.timezone, hours: popup.hours }, now)
+    ? popupStatusText(i18n, { startsAt: popup.starts_at, endsAt: popup.ends_at, timezone: popup.timezone, hours: popup.hours }, now)
     : null;
   const meta = CATEGORIES[popup.category] ?? CATEGORIES.more;
-  const place = formatDistance(popup.distance_km) ?? popup.city_name;
+  const place = formatDistance(i18n, popup.distance_km) ?? i18n.city(popup.city_slug, popup.city_name);
   const free = popup.price_range === 'free' ? t('common.free') : null;
   const compact = variant === 'compact';
   const row = variant === 'row';

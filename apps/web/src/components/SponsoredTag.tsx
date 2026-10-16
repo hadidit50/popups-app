@@ -1,7 +1,10 @@
-import { t } from '@/lib/i18n';
+'use client';
+
+import { useI18n } from '@/lib/i18n-client';
 
 /** Always shown on promoted content. Never hide or shrink it — user trust depends on it. */
 export function SponsoredTag() {
+  const { t } = useI18n();
   return (
     <span
       className="t-meta-strong"

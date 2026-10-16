@@ -1,7 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 import webpush from 'web-push';
 import { DAY, startOfLocalDay, toLocalMs } from '@whats-poppin/shared';
-import { t } from '@/lib/i18n';
+import { DEFAULT_LANG, getTranslator } from '@/lib/i18n';
+
+// Reminders are written in Hebrew for now (subscriptions don't store a language yet).
+const { t } = getTranslator(DEFAULT_LANG);
 
 // Sends "your saved pop-up ends soon" push reminders. Run daily by Vercel Cron (vercel.json).
 // Needs: SUPABASE_SERVICE_ROLE_KEY, VAPID_PRIVATE_KEY, NEXT_PUBLIC_VAPID_PUBLIC_KEY, CRON_SECRET.
