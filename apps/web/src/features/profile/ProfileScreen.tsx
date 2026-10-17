@@ -1,6 +1,7 @@
 'use client';
 
 import { ContactCard } from '@/features/contact/ContactForm';
+import { PromoteCard } from '@/features/promote/PromoteForm';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { CATEGORY_LIST } from '@whats-poppin/shared';
@@ -43,6 +44,8 @@ export function ProfileScreen() {
           </>
         )}
       </FormCard>
+
+      <PromoteCard />
 
       {user ? <Preferences /> : null}
       <NotificationSettings />

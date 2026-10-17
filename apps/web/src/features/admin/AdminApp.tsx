@@ -16,6 +16,7 @@ import { useAuth } from '@/lib/auth';
 import { INTL_LOCALE } from '@/lib/i18n';
 import { useI18n } from '@/lib/i18n-client';
 import { emptyPopupForm, loadCities, loadPopupForm } from '@/lib/popup-editor';
+import { addSamplePopups, countSamplePopups, removeSamplePopups } from '@/lib/sample-popups';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
 import styles from './Admin.module.css';
 
@@ -198,6 +199,42 @@ function QueueItem({
 }
 
 // ---------------------------------------------------------------------------
+// Sample pop-ups: one tap to show the site to friends, one tap to remove them
+// ---------------------------------------------------------------------------
+function SamplePopups() {
+  const { t } = useI18n();
+  const qc = useQueryClient();
+  const count = useQuery({ queryKey: ['admin', 'samples'], queryFn: countSamplePopups });
+  const done = () => qc.invalidateQueries({ queryKey: ['admin'] });
+  const add = useMutation({ mutationFn: () => addSamplePopups(t('admin.samples.note')), onSuccess: done });
+  const remove = useMutation({ mutationFn: removeSamplePopups, onSuccess: done });
+  const has = (count.data ?? 0) > 0;
+  return (
+    <FormCard title={t('admin.samples.title')}>
+      <p className="t-body">{has ? t('admin.samples.hasBody', { count: count.data ?? 0 }) : t('admin.samples.body')}</p>
+      {add.error || remove.error ? <Alert tone="error">{t('admin.loadFailed')}</Alert> : null}
+      {has ? (
+        <Button
+          variant="secondary"
+          icon="delete-outline"
+          fullWidth
+          loading={remove.isPending}
+          onClick={() => {
+            if (window.confirm(t('admin.samples.removeConfirm'))) remove.mutate();
+          }}
+        >
+          {t('admin.samples.remove')}
+        </Button>
+      ) : (
+        <Button icon="plus" fullWidth loading={add.isPending} disabled={count.isPending} onClick={() => add.mutate()}>
+          {t('admin.samples.add')}
+        </Button>
+      )}
+    </FormCard>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // All pop-ups
 // ---------------------------------------------------------------------------
 function AllPopups() {
@@ -226,6 +263,7 @@ function AllPopups() {
 
   return (
     <div className={styles.stack}>
+      <SamplePopups />
       <div className={styles.filters}>
         <TextField label={t('admin.search')} optional type="search" value={q} onChange={(e) => setQ(e.target.value)} />
         <label className={styles.check}>

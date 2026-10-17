@@ -158,6 +158,15 @@ function OwnPopupRow({ popup }: { popup: OwnPopup }) {
         <ButtonLink href={`/business/edit?id=${popup.id}`} variant="secondary" size="medium" icon="pencil-outline">
           {t('business.edit')}
         </ButtonLink>
+        {status === 'approved' ? (
+          <ButtonLink
+            href={`/promote?popup=${encodeURIComponent(popup.slug)}&title=${encodeURIComponent(popup.title)}`}
+            size="medium"
+            icon="rocket-launch-outline"
+          >
+            {t('promote.rowCta')}
+          </ButtonLink>
+        ) : null}
         <Link href={`/p/${popup.slug}`} className={styles.viewLink}>
           {t('business.view')}
           <Icon name="open-in-new" size={18} />
