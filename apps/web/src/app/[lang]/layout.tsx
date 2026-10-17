@@ -8,6 +8,7 @@ import '@fontsource-variable/noto-sans-arabic/wght.css';
 import '../globals.css';
 import { AppNav } from '@/components/AppNav';
 import { Providers } from '@/components/Providers';
+import { SiteFooter } from '@/components/SiteFooter';
 import { getTranslator, isLang, LANGS, localePath, LOCALE_TAG } from '@/lib/i18n';
 import { I18nProvider } from '@/lib/i18n-client';
 import { getLang } from '@/lib/i18n-server';
@@ -51,6 +52,7 @@ export default async function RootLayout({ children, params }: { children: React
           <Providers>
             <AppNav />
             <main id="main">{children}</main>
+            <SiteFooter />
           </Providers>
         </I18nProvider>
       </body>
