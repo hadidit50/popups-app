@@ -7,9 +7,14 @@ import { useI18n } from '@/lib/i18n-client';
 import { Link } from './Link';
 import styles from './SiteFooter.module.css';
 
-const LINKS = ['accessibility', 'terms', 'privacy'] as const;
+const LINKS = [
+  { href: '/contact', label: 'contact.title' },
+  { href: '/accessibility', label: 'legal.accessibility.title' },
+  { href: '/terms', label: 'legal.terms.title' },
+  { href: '/privacy', label: 'legal.privacy.title' },
+];
 
-/** Accessibility statement, terms and privacy: reachable from every page (not on the full-screen map). */
+/** Contact, accessibility statement, terms and privacy: reachable from every page (not on the full-screen map). */
 export function SiteFooter() {
   return (
     <Suspense fallback={null}>
@@ -25,9 +30,9 @@ function FooterUnlessMap() {
   return (
     <footer className={styles.footer}>
       <nav aria-label={t('legal.footerLabel')} className={styles.inner}>
-        {LINKS.map((doc) => (
-          <Link key={doc} href={`/${doc}`} className={styles.link}>
-            {t(`legal.${doc}.title`)}
+        {LINKS.map((l) => (
+          <Link key={l.href} href={l.href} className={styles.link}>
+            {t(l.label)}
           </Link>
         ))}
       </nav>

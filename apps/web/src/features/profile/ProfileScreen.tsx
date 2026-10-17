@@ -1,5 +1,6 @@
 'use client';
 
+import { ContactCard } from '@/features/contact/ContactForm';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { CATEGORY_LIST } from '@whats-poppin/shared';
@@ -52,6 +53,8 @@ export function ProfileScreen() {
           {t('profile.businessCta')}
         </ButtonLink>
       </FormCard>
+
+      <ContactCard />
 
       {isAdmin ? (
         <FormCard title={t('profile.admin')}>

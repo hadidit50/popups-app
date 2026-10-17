@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { Page } from '@/components/Page';
+import { CONTACT_EMAIL } from '@/lib/contact';
 import { getI18n } from '@/lib/i18n-server';
 
 export type LegalDoc = 'accessibility' | 'terms' | 'privacy';
@@ -7,8 +8,6 @@ export type LegalDoc = 'accessibility' | 'terms' | 'privacy';
 /** Date shown as "last updated" on all three documents. Change it whenever their text changes. */
 const UPDATED = '17.10.2026';
 
-/** Contact address for accessibility and privacy requests (Vercel env NEXT_PUBLIC_CONTACT_EMAIL). */
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || null;
 
 /**
  * Accessibility statement, terms and privacy policy. The text lives in the i18n files as a list of
