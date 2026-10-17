@@ -53,9 +53,18 @@
 1. **כתובת האתר:** ב-Supabase: **Authentication → URL Configuration**.
    - **Site URL:** כתובת האתר מ-Vercel (למשל `https://whats-poppin.vercel.app`).
    - **Redirect URLs:** מוסיפים `https://<הכתובת שלכם>/auth/callback`.
-2. **קוד במייל:** ב-Supabase: **Authentication → Email Templates → Magic Link**. מוסיפים לגוף המייל את השורה:
-   `הקוד שלך: {{ .Token }}`
-   ככה המייל כולל גם קוד וגם קישור, וגם מי שפותח את המייל בטלפון אחר יכול להתחבר.
+2. **מייל התחברות** (אחרי שמחברים שירות מיילים ב-**Authentication → Emails → SMTP Settings**, למשל Gmail ייעודי לאתר):
+   ב-**Authentication → Emails → Magic link or OTP**, ב-Subject כותבים `הכניסה שלך ל-WHATS POPPIN`, וב-Body (לשונית Source) מדביקים:
+   ```html
+   <div dir="rtl" style="font-family:Arial,sans-serif;font-size:16px;line-height:1.6">
+     <h2>הכניסה שלך ל-WHATS POPPIN</h2>
+     <p>הקוד שלך:</p>
+     <p dir="ltr" style="font-size:28px;font-weight:bold;letter-spacing:4px">{{ .Token }}</p>
+     <p>או פשוט לוחצים כאן: <a href="{{ .SiteURL }}/auth/callback?token_hash={{ .TokenHash }}&type=email">כניסה לאתר</a></p>
+     <p style="color:#555">הקוד והקישור תקפים לזמן קצר ולשימוש אחד. אם לא ביקשת להיכנס, אפשר להתעלם מהמייל.</p>
+   </div>
+   ```
+   הקישור הזה עובד בכל דפדפן ובכל מכשיר, גם אם פותחים את המייל בטלפון.
 3. **להפוך את עצמכם למנהלים:**
    - נכנסים לאתר ומתחברים פעם אחת עם המייל שלכם (פרופיל → התחברות).
    - ב-Supabase → **SQL Editor** מריצים את השורה הבאה, עם המייל שלכם:
