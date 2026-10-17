@@ -489,5 +489,77 @@
   },
   "language": {
     "label": "Language"
+  },
+  "legal": {
+    "footerLabel": "About this site",
+    "contactMissing": "through the Profile page on this site",
+    "accessibility": {
+      "title": "Accessibility statement",
+      "body": [
+        "## Our commitment",
+        "WHATS POPPIN wants everyone to be able to find pop-ups and get to them, including people with disabilities. The site follows Israeli Standard 5568 (based on WCAG 2.0 level AA) and the Equal Rights for Persons with Disabilities (Service Accessibility Adjustments) Regulations, 2013. We also aim to meet WCAG 2.1.",
+        "## What we've done",
+        "The site is available in Hebrew, Arabic and English, and you can switch language with one tap at the top of every page.",
+        "The whole site works with a keyboard alone, and every page starts with a \"Skip to content\" link.",
+        "All buttons and links are large (at least 48×48 pixels) and have a clear name for screen readers.",
+        "Text is never smaller than 15 pixels, you can zoom to 200% without losing content, and color contrast meets level AA.",
+        "Information never relies on color alone: every category also has an icon and a name, and statuses (such as \"Open now\") are written in words.",
+        "Everything shown on the map is also available in a regular list that works well with screen readers.",
+        "Every pop-up page shows accessibility information about the venue itself: wheelchair access, parking and suitability for kids, as provided by the organizers.",
+        "## What isn't perfect yet",
+        "Some content (pop-up photos and descriptions) is uploaded by businesses. We ask them to write clear text, but not every photo may have a full description.",
+        "The map comes from an external service (OpenFreeMap), and street names on it appear in the local language.",
+        "Venue accessibility details are provided by the organizers; we don't check them on site.",
+        "## Found a problem?",
+        "We'd love to hear about it and fix it. Contact our accessibility coordinator: {{email}}. Please tell us which page had the problem, what you were trying to do, and which device and browser you used. We'll get back to you within 14 days.",
+        "## Last updated",
+        "This statement was last updated on {{date}}."
+      ]
+    },
+    "terms": {
+      "title": "Terms of use",
+      "body": [
+        "## About the service",
+        "WHATS POPPIN (\"the site\") brings together information about pop-ups, markets and temporary events, to help you discover what's on and get there. The site is free for visitors.",
+        "By using the site you agree to these terms. If you don't agree, please don't use the site.",
+        "## Information on the site",
+        "Most information about pop-ups (hours, prices, addresses and photos) comes from the organizers. We work to keep it accurate and up to date, but can't guarantee it. Before heading out, it's worth checking the organizer's own page too.",
+        "The site isn't responsible for the pop-ups themselves: their products, service, prices or what happens there. That's the organizers' responsibility.",
+        "## Sponsored content",
+        "Some pop-ups are promoted for a fee. They are always marked with a \"Sponsored\" tag.",
+        "## Businesses and organizers",
+        "Anyone who submits a pop-up confirms that the information is correct, that they have the right to publish the photos and text, and that the pop-up is legal. They allow us to show the content on the site, translate it and share it to promote the site.",
+        "We may approve, edit, reject or remove any pop-up, for example if the information is wrong, offensive, misleading or infringes other people's rights.",
+        "## Fair use",
+        "Don't upload offensive, misleading or illegal content, impersonate others, harm the site, or collect data from it automatically without permission.",
+        "## Liability",
+        "The site is provided as is. To the extent the law allows, we're not liable for damage caused by using the site or relying on its information.",
+        "## Changes and contact",
+        "We may update these terms from time to time; the current version always appears on this page. These terms are governed by the laws of the State of Israel, and the courts of Tel Aviv-Yafo have jurisdiction.",
+        "Questions? Write to us: {{email}}. Last updated: {{date}}."
+      ]
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "body": [
+        "## In short",
+        "We collect only what the site needs to work. We don't sell personal information and don't use third-party advertising tools.",
+        "## What we keep",
+        "Without signing up: the pop-ups you saved and the language you chose are kept in your browser. So that saving works without signing up, an anonymous account is created for you, with no name and no email.",
+        "If you sign up: your email address, the pop-ups you saved, the categories and area you chose in your profile, and whether you asked for reminders.",
+        "Businesses: the business name, a contact phone and email (not shown on the site), and the pop-ups you submitted.",
+        "Statistics: views, saves, navigations and shares of pop-ups, with no name and no email. That's how we know what's \"Hot now\" and show businesses how many people were interested.",
+        "## Location",
+        "If you allow location access, it's used only inside your browser to calculate distances and sort by what's close. We don't store your location.",
+        "## Reminders",
+        "If you turn on reminders, a technical browser ID is stored so we can send you a notification. You can turn reminders off at any time in your profile.",
+        "## Who else is involved",
+        "The site uses a few providers: Supabase (database and sign-in, on servers in the European Union), Vercel (website hosting), OpenFreeMap (the map), and an address-lookup service for businesses submitting a pop-up. They only receive what's needed to provide the service.",
+        "## Your rights",
+        "Under Israel's Privacy Protection Law, you can ask to see, correct or delete your information. Write to us at {{email}} and we'll take care of it.",
+        "## Updates",
+        "If we change this policy, the current version will appear here. Last updated: {{date}}."
+      ]
+    }
   }
 }
