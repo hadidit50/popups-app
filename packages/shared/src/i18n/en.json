@@ -561,5 +561,32 @@
         "If we change this policy, the current version will appear here. Last updated: {{date}}."
       ]
     }
+  },
+  "contact": {
+    "title": "Contact us",
+    "intro": "Something not working? Something unclear? Got an idea? Write to us. We read every message.",
+    "promise": "We'll get back to you within 48 hours.",
+    "topicLabel": "What's it about?",
+    "topics": {
+      "bug": "Something isn't working",
+      "help": "Something isn't clear",
+      "business": "A question about a business or pop-up",
+      "idea": "An idea or suggestion",
+      "other": "Something else"
+    },
+    "message": "Your message",
+    "messageHint": "The more detail you give, the faster we can help. For example: which page it happened on and what you were trying to do.",
+    "sendGmail": "Send with Gmail",
+    "sendMail": "Send with your email app",
+    "emptyMessage": "Write a few words before sending.",
+    "orWrite": "Or write to us directly:",
+    "copy": "Copy address",
+    "copied": "Address copied ✓",
+    "subject": "WHATS POPPIN · {{topic}}",
+    "details": "Details that help us (you can delete them):",
+    "notConfigured": "Our email address will be added here soon.",
+    "profileTitle": "Need help?",
+    "profileBody": "Something not working or unclear? Write to us and we'll get back to you within 48 hours.",
+    "profileCta": "Contact us"
   }
 }

@@ -82,6 +82,9 @@ import {
   mdiWeb,
   mdiWheelchairAccessibility,
   mdiWifiOff,
+  mdiGmail,
+  mdiLifebuoy,
+  mdiMessageTextOutline,
 } from '@mdi/js';
 
 // Material Design Icons — the same set the shared category metadata names (e.g. "storefront-outline").
@@ -169,6 +172,9 @@ const ICONS = {
   web: mdiWeb,
   'wheelchair-accessibility': mdiWheelchairAccessibility,
   'wifi-off': mdiWifiOff,
+  gmail: mdiGmail,
+  lifebuoy: mdiLifebuoy,
+  'message-text-outline': mdiMessageTextOutline,
 } as const;
 
 export type IconName = keyof typeof ICONS;
