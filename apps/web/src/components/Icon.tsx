@@ -85,6 +85,7 @@ import {
   mdiGmail,
   mdiLifebuoy,
   mdiMessageTextOutline,
+  mdiRocketLaunchOutline,
 } from '@mdi/js';
 
 // Material Design Icons — the same set the shared category metadata names (e.g. "storefront-outline").
@@ -175,6 +176,7 @@ const ICONS = {
   gmail: mdiGmail,
   lifebuoy: mdiLifebuoy,
   'message-text-outline': mdiMessageTextOutline,
+  'rocket-launch-outline': mdiRocketLaunchOutline,
 } as const;
 
 export type IconName = keyof typeof ICONS;

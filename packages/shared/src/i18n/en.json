@@ -469,7 +469,16 @@
     "statsSaves7": "Saves (7 days)",
     "statsOrganizers": "Businesses",
     "topPopups": "Most viewed this week",
-    "loadFailed": "Couldn't load. Try again."
+    "loadFailed": "Couldn't load. Try again.",
+    "samples": {
+      "title": "Sample pop-ups",
+      "body": "Want to show friends how the site works before there's enough content? Add 5 sample pop-ups with one tap, and remove them whenever you like.",
+      "hasBody": "There are {{count}} sample pop-ups on the site right now. Remove them before you publish the site to everyone.",
+      "add": "Add 5 sample pop-ups",
+      "remove": "Remove all sample pop-ups",
+      "removeConfirm": "Remove all sample pop-ups?",
+      "note": "This is a sample pop-up, for illustration only."
+    }
   },
   "notifications": {
     "title": "Reminders",
@@ -588,5 +597,45 @@
     "profileTitle": "Need help?",
     "profileBody": "Something not working or unclear? Write to us and we'll get back to you within 48 hours.",
     "profileCta": "Contact us"
+  },
+  "promote": {
+    "title": "Promote a pop-up",
+    "intro": "Want more people to come? Your pop-up shows up in the most visible spot on the site, right in front of people looking for something to do today.",
+    "placements": {
+      "hot_now": {
+        "title": "🔥 First in \"Hot now\"",
+        "body": "The first card on the home page, seen by everyone who visits."
+      },
+      "nearby_top": {
+        "title": "📍 Top of \"Near you\"",
+        "body": "First for people close to your pop-up, right when they're looking."
+      },
+      "map_highlight": {
+        "title": "🗺️ Highlighted on the map",
+        "body": "A standout marker that catches the eye of anyone looking at the area."
+      }
+    },
+    "honest": "Promotions are always marked \"Sponsored\", so visitors can trust the site.",
+    "formTitle": "Promotion request",
+    "popup": "Which pop-up?",
+    "popupHint": "The pop-up's name or its link on the site.",
+    "where": "Where should it appear?",
+    "howLong": "For how long?",
+    "durations": {
+      "3d": "3 days",
+      "1w": "1 week",
+      "2w": "2 weeks",
+      "1m": "1 month"
+    },
+    "business": "Business name",
+    "phone": "Phone for a call back",
+    "notes": "Anything else?",
+    "missing": "The pop-up name or the business name is missing.",
+    "promise": "We'll get back to you with a price within 48 hours. You only pay after you approve.",
+    "subject": "Promotion request · {{business}}",
+    "cardTitle": "Got a pop-up? Promote it",
+    "cardBody": "Be first on the home page, at the top of \"Near you\" and on the map, in front of thousands of people looking for something to do.",
+    "cardCta": "Promote my pop-up",
+    "rowCta": "Promote"
   }
 }

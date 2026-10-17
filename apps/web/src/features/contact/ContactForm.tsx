@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Button, ButtonLink } from '@/components/Button';
 import { Alert, FormCard, Segmented, TextArea } from '@/components/Form';
+import { openEmail } from '@/lib/compose';
 import { CONTACT_EMAIL } from '@/lib/contact';
 import { useI18n } from '@/lib/i18n-client';
 
@@ -37,12 +38,7 @@ export function ContactForm() {
     }
     setError(null);
     const { subject, body } = compose();
-    const q = (s: string) => encodeURIComponent(s);
-    if (kind === 'gmail') {
-      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${q(to)}&su=${q(subject)}&body=${q(body)}`, '_blank', 'noopener');
-    } else {
-      window.location.href = `mailto:${to}?subject=${q(subject)}&body=${q(body)}`;
-    }
+    openEmail(kind, subject, body);
   };
 
   return (
