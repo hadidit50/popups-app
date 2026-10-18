@@ -135,7 +135,7 @@
     "devSection": "System check",
     "uiPreview": "Design system preview",
     "connection": "Server connection",
-    "guestTitle": "Hi! 👋",
+    "guestTitle": "Hi!",
     "guestBody": "You can browse and save pop-ups without signing up. Signing in keeps everything on your other devices too.",
     "preferences": "My preferences",
     "favoriteCategories": "Categories I like",
@@ -184,7 +184,7 @@
     "ghostButton": "Cancel",
     "sampleDisplay": "WHATS POPPIN",
     "sampleTitle": "Florentin Food Market",
-    "sampleHeading": "Hot now 🔥",
+    "sampleHeading": "Hot now",
     "sampleBody": "Street food from young chefs, a DJ and local beer.",
     "sampleMeta": "1.2 km away · Tel Aviv-Yafo",
     "intro": "Every building block of the site in one place. The sample data here is fixed, not from the server."
@@ -420,7 +420,7 @@
       "promotions": "Promotions",
       "stats": "Stats"
     },
-    "queueEmpty": "Nothing to approve right now. 🎉",
+    "queueEmpty": "Nothing to approve right now.",
     "approve": "Approve",
     "reject": "Reject",
     "rejectReason": "Rejection reason (shown to the organizer)",
@@ -487,10 +487,10 @@
     "enabled": "Reminders are on ✓",
     "disable": "Turn off reminders",
     "failed": "We couldn't turn on reminders. You can use “Calendar reminder” on any pop-up page.",
-    "iosInstall": "On iPhone, reminders work after adding the site to your Home Screen: Share ⬆️ → “Add to Home Screen”. Until then, use “Calendar reminder” on any pop-up page.",
+    "iosInstall": "On iPhone, reminders work after adding the site to your Home Screen: Share → “Add to Home Screen”. Until then, use “Calendar reminder” on any pop-up page.",
     "denied": "Notifications are blocked in your browser. Allow them in site settings, or use “Calendar reminder”.",
     "unsupported": "This browser doesn't support notifications. Use “Calendar reminder” on any pop-up page.",
-    "savedPromptTitle": "Don't miss out 🔔",
+    "savedPromptTitle": "Don't miss out",
     "savedPromptBody": "We'll remind you a day before one of your saved pop-ups ends.",
     "pushTitle": "Ends tomorrow: {{title}}",
     "pushTitleToday": "Last day today: {{title}}",
@@ -611,7 +611,7 @@
         "body": "First for people close to your pop-up, right when they're looking."
       },
       "map_highlight": {
-        "title": "🗺️ Highlighted on the map",
+        "title": "Highlighted on the map",
         "body": "A standout marker that catches the eye of anyone looking at the area."
       }
     },

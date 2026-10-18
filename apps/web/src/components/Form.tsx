@@ -123,9 +123,10 @@ export function Alert({ tone, children }: { tone: 'error' | 'ok' | 'info'; child
   );
 }
 
-export function FormCard({ title, children }: { title?: string; children: ReactNode }) {
+/** A group of fields. `plain` drops the box, for settings pages that list several groups. */
+export function FormCard({ title, plain = false, children }: { title?: string; plain?: boolean; children: ReactNode }) {
   return (
-    <section className={styles.card}>
+    <section className={plain ? styles.plain : styles.card}>
       {title ? <h2 className="t-title">{title}</h2> : null}
       {children}
     </section>

@@ -2,15 +2,19 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { Button, ButtonLink } from '@/components/Button';
+import { Button } from '@/components/Button';
 import { FilterChip } from '@/components/Chip';
 import { Alert, FormCard, Segmented, TextArea, TextField } from '@/components/Form';
+import { Icon } from '@/components/Icon';
 import { openEmail } from '@/lib/compose';
 import { CONTACT_EMAIL } from '@/lib/contact';
 import { useI18n } from '@/lib/i18n-client';
 
-// Each placement's title starts with its own emoji, so no extra icon is needed.
-const PLACEMENTS = [{ key: 'hot_now' }, { key: 'nearby_top' }, { key: 'map_highlight' }] as const;
+const PLACEMENTS = [
+  { key: 'hot_now', icon: 'bullhorn-outline' },
+  { key: 'nearby_top', icon: 'map-marker-radius-outline' },
+  { key: 'map_highlight', icon: 'map-search-outline' },
+] as const;
 const DURATIONS = ['3d', '1w', '2w', '1m'] as const;
 type Duration = (typeof DURATIONS)[number];
 
@@ -20,7 +24,12 @@ export function PromoteOptions() {
   return (
     <ul style={{ listStyle: 'none', display: 'grid', gap: 'var(--space-sm)' }}>
       {PLACEMENTS.map((p) => (
-        <li key={p.key} style={{ display: 'grid', padding: 'var(--space-md)', borderRadius: 'var(--radius-lg)', background: 'var(--color-surface)' }}>
+        <li key={p.key} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-sm)' }}>
+          <span
+            style={{ display: 'grid', placeItems: 'center', flex: 'none', width: 44, height: 44, borderRadius: '50%', background: 'var(--color-primary-soft)', color: 'var(--color-primary)' }}
+          >
+            <Icon name={p.icon} size={22} />
+          </span>
           <span style={{ display: 'grid', gap: 2 }}>
             <strong className="t-body-strong">{t(`promote.placements.${p.key}.title`)}</strong>
             <span className="t-body t-secondary">{t(`promote.placements.${p.key}.body`)}</span>
@@ -96,7 +105,10 @@ export function PromoteForm() {
       <TextField label={t('promote.business')} value={business} autoComplete="organization" onChange={(e) => setBusiness(e.target.value)} />
       <TextField label={t('promote.phone')} optional type="tel" inputMode="tel" dir="ltr" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
       <TextArea label={t('promote.notes')} optional rows={3} value={notes} onChange={(e) => setNotes(e.target.value)} />
-      <p className="t-body-strong">⏱️ {t('promote.promise')}</p>
+      <p className="t-body-strong" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-xs)' }}>
+        <Icon name="clock-outline" size={20} />
+        {t('promote.promise')}
+      </p>
       <div style={{ display: 'grid', gap: 'var(--space-sm)' }}>
         <Button icon="gmail" fullWidth onClick={() => send('gmail')}>
           {t('contact.sendGmail')}
@@ -106,24 +118,5 @@ export function PromoteForm() {
         </Button>
       </div>
     </FormCard>
-  );
-}
-
-/** The eye-catching "Promote your pop-up" card on the profile page. */
-export function PromoteCard() {
-  const { t } = useI18n();
-  return (
-    <section
-      aria-labelledby="promote-card"
-      style={{ display: 'grid', gap: 'var(--space-sm)', padding: 'var(--space-lg)', borderRadius: 'var(--radius-xl)', background: 'var(--color-primary-soft)' }}
-    >
-      <h2 id="promote-card" className="t-title">
-        🚀 {t('promote.cardTitle')}
-      </h2>
-      <p className="t-body">{t('promote.cardBody')}</p>
-      <ButtonLink href="/promote" icon="rocket-launch-outline" fullWidth>
-        {t('promote.cardCta')}
-      </ButtonLink>
-    </section>
   );
 }
