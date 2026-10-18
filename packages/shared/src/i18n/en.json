@@ -164,6 +164,8 @@
     "offlineBody": "Check your connection and try again."
   },
   "a11y": {
+    "scrollNext": "Next",
+    "scrollPrev": "Previous",
     "popupCard": "{{title}}, {{category}}, {{place}}, {{status}}",
     "sponsoredSuffix": "Sponsored content",
     "imageFallback": "{{category}} image",

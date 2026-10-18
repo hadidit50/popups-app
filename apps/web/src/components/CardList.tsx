@@ -1,9 +1,10 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { PopupSummary } from '@whats-poppin/shared';
 import { useI18n } from '@/lib/i18n-client';
 import { Button } from './Button';
+import { Icon } from './Icon';
 import { PopupCard } from './PopupCard';
 import { PopupCardSkeleton } from './Skeleton';
 import { ErrorState } from './StateView';
@@ -42,11 +43,47 @@ export function CardList({ items, loading, error, onRetry, layout, surface, empt
   }
   if (!items || items.length === 0) return <>{empty}</>;
 
+  const cards = items.map((p) => <PopupCard key={`${p.id}-${p.is_sponsored ? 's' : 'o'}`} popup={p} variant={variant} surface={surface} />);
+  return layout === 'carousel' ? <Carousel>{cards}</Carousel> : <div className={className}>{cards}</div>;
+}
+
+/**
+ * Horizontal row. Touch: swipe. Mouse: previous/next buttons (wide screens only), each scrolling
+ * about one screen of cards, disabled at the ends.
+ */
+function Carousel({ children }: { children: ReactNode }) {
+  const { t, dir, forward } = useI18n();
+  const ref = useRef<HTMLDivElement>(null);
+  const [edges, setEdges] = useState({ start: true, end: false });
+
+  const update = () => {
+    const el = ref.current;
+    if (!el) return;
+    // scrollLeft is negative in RTL, so compare distances.
+    const offset = Math.abs(el.scrollLeft);
+    setEdges({ start: offset < 4, end: offset + el.clientWidth >= el.scrollWidth - 4 });
+  };
+  useEffect(update, [children]);
+
+  const step = (towardsEnd: boolean) => {
+    const el = ref.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.85 * (towardsEnd ? 1 : -1) * (dir === 'rtl' ? -1 : 1);
+    el.scrollBy({ left: amount, behavior: 'smooth' });
+  };
+  const backIcon = forward === 'chevron-left' ? 'chevron-right' : 'chevron-left';
+
   return (
-    <div className={className}>
-      {items.map((p) => (
-        <PopupCard key={`${p.id}-${p.is_sponsored ? 's' : 'o'}`} popup={p} variant={variant} surface={surface} />
-      ))}
+    <div className={styles.carouselWrap}>
+      <div ref={ref} className={styles.carousel} onScroll={update}>
+        {children}
+      </div>
+      <button type="button" className={`${styles.arrow} ${styles.arrowStart}`} aria-label={t('a11y.scrollPrev')} disabled={edges.start} onClick={() => step(false)}>
+        <Icon name={backIcon} size={24} />
+      </button>
+      <button type="button" className={`${styles.arrow} ${styles.arrowEnd}`} aria-label={t('a11y.scrollNext')} disabled={edges.end} onClick={() => step(true)}>
+        <Icon name={forward} size={24} />
+      </button>
     </div>
   );
 }

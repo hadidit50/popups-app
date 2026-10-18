@@ -4,8 +4,16 @@
 .tools { display: grid; gap: var(--space-sm); }
 .section { display: grid; gap: var(--space-sm); }
 .nearbyEmpty { display: grid; gap: var(--space-xxs); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-surface); }
+/* List pages: the filters stay under the header while scrolling, in one swipeable line. */
+.stickyFilters {
+  position: sticky; top: 65px; z-index: 10;
+  margin-inline: calc(var(--gutter) * -1); padding: var(--space-xs) var(--gutter);
+  background: rgb(255 255 255 / 0.92); backdrop-filter: saturate(1.4) blur(12px);
+}
+.stickyFilters > div { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.stickyFilters > div::-webkit-scrollbar { display: none; }
 /* Let horizontal scrollers (categories, carousels) scroll instead of widening the page. */
-.feed > *, .section > *, .tools > * { min-width: 0; }
+.feed > *, .section > *, .tools > *, .stickyFilters > * { min-width: 0; }
 @media (min-width: 900px) {
   .feed { gap: var(--space-xxl); padding-top: var(--space-xl); }
 }
