@@ -1,22 +1,23 @@
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   min-height: var(--touch);
   padding-inline: var(--space-md);
   border-radius: var(--radius-pill);
-  border: 1.5px solid var(--color-border);
-  background: var(--color-bg);
+  border: 1.5px solid transparent;
+  background: var(--color-surface);
   color: var(--color-text);
   font-size: 0.9375rem;
   line-height: 1.25rem;
   font-weight: 500;
   white-space: nowrap;
+  transition: background-color 120ms ease;
 }
-.chip:hover { background: var(--color-surface); }
+.chip:hover { background: var(--color-surface-pressed); }
+/* Selected = solid ink with a check mark: clear at a glance, same for every chip. */
 .selected, .selected:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--color-text);
   color: var(--color-text-inverse);
 }
 .icon { color: var(--accent); display: inline-flex; }

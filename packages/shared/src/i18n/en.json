@@ -86,10 +86,10 @@
     "searchLabel": "Search pop-ups",
     "searchButton": "Search",
     "categoriesLabel": "Categories",
-    "hot": "🔥 Hot now",
-    "nearby": "📍 Near you",
-    "weekend": "📅 This weekend",
-    "endingSoon": "⏳ Ending soon",
+    "hot": "Hot now",
+    "nearby": "Near you",
+    "weekend": "This weekend",
+    "endingSoon": "Ending soon",
     "nearbyRadius": "Within {{km}} km",
     "nearbyEmptyTitle": "Nothing nearby right now",
     "nearbyEmptyBody": "We checked up to 50 km around you. Pick another city or browse the whole country.",
@@ -603,11 +603,11 @@
     "intro": "Want more people to come? Your pop-up shows up in the most visible spot on the site, right in front of people looking for something to do today.",
     "placements": {
       "hot_now": {
-        "title": "🔥 First in \"Hot now\"",
+        "title": "First in \"Hot now\"",
         "body": "The first card on the home page, seen by everyone who visits."
       },
       "nearby_top": {
-        "title": "📍 Top of \"Near you\"",
+        "title": "Top of \"Near you\"",
         "body": "First for people close to your pop-up, right when they're looking."
       },
       "map_highlight": {

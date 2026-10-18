@@ -54,7 +54,7 @@ function AppNavView({ pathname: fullPath }: { pathname: string }) {
                 return (
                   <li key={tab.href}>
                     <Link href={tab.href} className={styles.topLink} aria-current={active ? 'page' : undefined}>
-                      <Icon name={active ? tab.activeIcon : tab.icon} size={22} />
+                      <Icon name={active ? tab.activeIcon : tab.icon} size={20} />
                       {t(tab.label)}
                     </Link>
                   </li>
@@ -73,7 +73,7 @@ function AppNavView({ pathname: fullPath }: { pathname: string }) {
             return (
               <li key={tab.href}>
                 <Link href={tab.href} className={styles.tab} aria-current={active ? 'page' : undefined}>
-                  <Icon name={active ? tab.activeIcon : tab.icon} size={28} />
+                  <Icon name={active ? tab.activeIcon : tab.icon} size={24} />
                   {t(tab.label)}
                 </Link>
               </li>

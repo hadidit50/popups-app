@@ -50,9 +50,6 @@ export function SearchBox({ initial = '' }: { initial?: string }) {
     >
       <label className={styles.searchField}>
         <span className="visually-hidden">{t('discover.searchLabel')}</span>
-        <span className={styles.searchIcon}>
-          <Icon name="magnify" size={24} />
-        </span>
         <input
           className={styles.searchInput}
           type="search"
@@ -62,8 +59,8 @@ export function SearchBox({ initial = '' }: { initial?: string }) {
           placeholder={t('discover.searchPlaceholder')}
         />
       </label>
-      <button type="submit" className={styles.searchButton}>
-        {t('discover.searchButton')}
+      <button type="submit" className={styles.searchButton} aria-label={t('discover.searchButton')}>
+        <Icon name="magnify" size={24} />
       </button>
     </form>
   );

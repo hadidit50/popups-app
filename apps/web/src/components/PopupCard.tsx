@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from '@/components/Link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type CSSProperties } from 'react';
 import { CATEGORIES, type PopupSummary } from '@whats-poppin/shared';
 import { useI18n } from '@/lib/i18n-client';
 import { useIsSaved } from '@/lib/saved';
@@ -79,8 +79,12 @@ export function PopupCard({ popup, href = `/p/${popup.slug}`, variant = 'large',
         </div>
         <div className={styles.body}>
           <div className={styles.topRow}>
-            <span className={styles.badge} style={{ background: meta.color }}>
-              {isIconName(meta.icon) ? <Icon name={meta.icon} size={16} /> : null}
+            <span className={styles.badge} style={{ '--accent': meta.color } as CSSProperties}>
+              {isIconName(meta.icon) ? (
+                <span className={styles.badgeIcon}>
+                  <Icon name={meta.icon} size={16} />
+                </span>
+              ) : null}
               {t(`categories.${meta.slug}`)}
             </span>
             {popup.is_sponsored ? <SponsoredTag /> : null}
@@ -88,11 +92,8 @@ export function PopupCard({ popup, href = `/p/${popup.slug}`, variant = 'large',
           <h3 className={styles.title}>{popup.title}</h3>
           <StatusLine text={status} />
           <p className={styles.meta}>
-            <Icon name="map-marker-outline" size={18} />
-            <span>
-              {place}
-              {free ? ` · ${free}` : ''}
-            </span>
+            {place}
+            {free ? ` · ${free}` : ''}
           </p>
         </div>
       </Link>
@@ -104,7 +105,7 @@ export function PopupCard({ popup, href = `/p/${popup.slug}`, variant = 'large',
           aria-label={t(saved ? 'a11y.unsaveButton' : 'a11y.saveButton', { title: popup.title })}
           onClick={onToggleSave}
         >
-          <Icon name={saved ? 'heart' : 'heart-outline'} size={26} />
+          <Icon name={saved ? 'heart' : 'heart-outline'} size={24} />
         </button>
       ) : null}
     </article>

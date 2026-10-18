@@ -18,6 +18,8 @@
   scrollbar-width: none;
 }
 .topBar > * { flex: none; box-shadow: var(--shadow-card); }
+/* Over the map the chips need a solid white fill to stay readable. */
+.topBar > button[aria-pressed="false"] { background: var(--color-bg); }
 
 .nearMe {
   position: absolute; z-index: 6;

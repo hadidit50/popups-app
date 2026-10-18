@@ -67,9 +67,11 @@ export function LocationPill() {
   return (
     <>
       <button type="button" className={styles.pill} onClick={() => setOpen(true)} aria-label={`${t('location.changeLabel')}: ${text}`}>
-        <Icon name="map-marker-outline" size={20} />
+        <span className={styles.pillIcon}>
+          <Icon name="map-marker-outline" size={20} />
+        </span>
         <span className={styles.pillLabel}>{text}</span>
-        <span className={styles.change}>· {t('location.change')}</span>
+        <span className={styles.change}>{t('location.change')}</span>
       </button>
       <LocationSheet open={open} onClose={() => setOpen(false)} />
     </>

@@ -23,10 +23,10 @@ export function SectionHeader({ title, seeAllHref, id }: SectionHeaderProps) {
           href={seeAllHref}
           aria-label={`${t('common.seeAll')}: ${title}`}
           className="t-body-strong"
-          style={{ display: 'inline-flex', alignItems: 'center', minHeight: 'var(--touch)', color: 'var(--color-primary)', whiteSpace: 'nowrap' }}
+          style={{ display: 'inline-flex', alignItems: 'center', minHeight: 'var(--touch)', color: 'var(--color-text-secondary)', whiteSpace: 'nowrap' }}
         >
           {t('common.seeAll')}
-          <Icon name={forward} size={22} />
+          <Icon name={forward} size={20} />
         </Link>
       ) : null}
     </div>

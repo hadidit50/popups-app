@@ -1,6 +1,11 @@
-.feed { display: grid; gap: var(--space-lg); padding-top: var(--space-xs); }
-.header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); }
+.feed { display: grid; gap: var(--space-xl); padding-top: var(--space-md); }
+.header { display: grid; gap: var(--space-md); }
+.intro { display: grid; gap: var(--space-sm); justify-items: start; }
+.tools { display: grid; gap: var(--space-sm); }
 .section { display: grid; gap: var(--space-sm); }
 .nearbyEmpty { display: grid; gap: var(--space-xxs); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-surface); }
 /* Let horizontal scrollers (categories, carousels) scroll instead of widening the page. */
-.feed > *, .section > * { min-width: 0; }
+.feed > *, .section > *, .tools > * { min-width: 0; }
+@media (min-width: 900px) {
+  .feed { gap: var(--space-xxl); padding-top: var(--space-xl); }
+}
