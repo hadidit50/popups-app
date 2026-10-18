@@ -15,7 +15,7 @@ function supportMessage(t: I18n['t'], s: PushSupport): string | null {
 }
 
 /** On/off for "remind me before a saved pop-up ends". Asks the browser only after a tap. */
-export function NotificationSettings({ compact = false }: { compact?: boolean }) {
+export function NotificationSettings({ compact = false, plain = false }: { compact?: boolean; plain?: boolean }) {
   const { t } = useI18n();
   const [support, setSupport] = useState<PushSupport | null>(null);
   const [enabled, setEnabled] = useState(false);
@@ -75,5 +75,9 @@ export function NotificationSettings({ compact = false }: { compact?: boolean })
     </>
   );
 
-  return <FormCard title={compact ? t('notifications.savedPromptTitle') : t('notifications.title')}>{content}</FormCard>;
+  return (
+    <FormCard title={compact ? t('notifications.savedPromptTitle') : t('notifications.title')} plain={plain}>
+      {content}
+    </FormCard>
+  );
 }

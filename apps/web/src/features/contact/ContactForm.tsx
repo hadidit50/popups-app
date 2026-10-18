@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Button, ButtonLink } from '@/components/Button';
+import { Button } from '@/components/Button';
 import { Alert, FormCard, Segmented, TextArea } from '@/components/Form';
 import { openEmail } from '@/lib/compose';
 import { CONTACT_EMAIL } from '@/lib/contact';
@@ -88,18 +88,5 @@ export function ContactForm() {
         </Button>
       </section>
     </div>
-  );
-}
-
-/** "Need help?" card for the profile page. */
-export function ContactCard() {
-  const { t } = useI18n();
-  return (
-    <FormCard title={t('contact.profileTitle')}>
-      <p className="t-body">{t('contact.profileBody')}</p>
-      <ButtonLink href="/contact" variant="secondary" icon="lifebuoy" fullWidth>
-        {t('contact.profileCta')}
-      </ButtonLink>
-    </FormCard>
   );
 }

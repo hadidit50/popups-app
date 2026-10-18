@@ -19,11 +19,14 @@
 .segmented { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .segment {
   min-height: var(--touch); padding-inline: var(--space-md);
-  border-radius: var(--radius-pill); border: 1.5px solid var(--color-border);
-  font-weight: 500; background: var(--color-bg);
+  border-radius: var(--radius-pill); border: 1.5px solid transparent;
+  font-weight: 500; background: var(--color-surface);
 }
+.segment:hover { background: var(--color-surface-pressed); }
 .segment[aria-pressed='true'], .segment[aria-checked='true'] { background: var(--color-text); border-color: var(--color-text); color: var(--color-text-inverse); }
 .card { display: grid; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-surface); }
+.plain { display: grid; gap: var(--space-sm); }
+.plain > h2 { font-size: 1.125rem; line-height: 1.5rem; font-weight: 600; }
 .alert { padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); font-weight: 500; }
 .alertError { background: var(--color-error-soft); color: var(--color-error); }
 .alertOk { background: var(--color-open-soft); color: var(--color-open); }

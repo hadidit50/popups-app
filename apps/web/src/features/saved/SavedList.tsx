@@ -57,7 +57,8 @@ export function SavedList() {
   );
 
   return (
-    <div className={styles.feed}>
+    // One narrow column, like the profile: each heart stays next to its pop-up.
+    <div className={styles.feed} style={{ maxWidth: '40rem', marginInline: 'auto' }}>
       <header style={{ display: 'grid', gap: 'var(--space-xxs)' }}>
         <h1 className="t-display">{t('saved.title')}</h1>
         <p className="t-body t-secondary">{t('saved.intro')}</p>
