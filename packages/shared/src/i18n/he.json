@@ -164,6 +164,8 @@
     "offlineBody": "בדקו את החיבור ונסו שוב."
   },
   "a11y": {
+    "scrollNext": "הבא",
+    "scrollPrev": "הקודם",
     "popupCard": "{{title}}, {{category}}, {{place}}, {{status}}",
     "sponsoredSuffix": "תוכן ממומן",
     "imageFallback": "תמונה של {{category}}",

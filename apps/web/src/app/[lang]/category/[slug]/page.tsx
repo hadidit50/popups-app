@@ -25,7 +25,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   if (!isCategory(slug)) notFound();
   return (
     <Page>
-      <div style={{ display: 'grid', gap: 'var(--space-md)' }}>
+      {/* minmax(0, 1fr): the scrolling category row must not widen the page. */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 'var(--space-md)' }}>
         <CategoryRow current={slug} />
         <PopupListView
           title={t(`categories.${slug}`)}

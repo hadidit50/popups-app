@@ -10,6 +10,27 @@
   scrollbar-color: var(--color-border) transparent;
 }
 .carousel > * { scroll-snap-align: start; }
-.grid { display: grid; gap: var(--space-xl) var(--space-md); grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.grid { display: grid; gap: var(--space-xl) var(--space-md); grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
 .note { padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-surface); color: var(--color-text-secondary); }
 .rows { display: grid; gap: 2px var(--space-md); margin-inline: calc(var(--space-xs) * -1); grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+
+/* Previous/next buttons float over the row's edges, only where there is a mouse and room. */
+.carouselWrap { position: relative; }
+.arrow {
+  display: none;
+  position: absolute; top: calc(264px * 3 / 8 - var(--touch) / 2 + var(--space-xxs));
+  width: var(--touch); height: var(--touch);
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-bg); color: var(--color-text);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-floating);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+.arrow:hover { transform: scale(1.06); }
+.arrow:disabled { opacity: 0; pointer-events: none; }
+.arrowStart { inset-inline-start: calc(var(--touch) / -2); }
+.arrowEnd { inset-inline-end: calc(var(--touch) / -2); }
+@media (hover: hover) and (min-width: 900px) {
+  .arrow { display: grid; }
+}

@@ -164,6 +164,8 @@
     "offlineBody": "تحققوا من الاتصال وحاولوا مرة أخرى."
   },
   "a11y": {
+    "scrollNext": "التالي",
+    "scrollPrev": "السابق",
     "popupCard": "{{title}}، {{category}}، {{place}}، {{status}}",
     "sponsoredSuffix": "محتوى مُموَّل",
     "imageFallback": "صورة من فئة {{category}}",

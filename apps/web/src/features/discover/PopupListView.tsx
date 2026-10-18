@@ -54,7 +54,9 @@ export function PopupListView({ title, intro, section, baseFilters = {}, surface
         <LocationPrompt />
       ) : (
         <>
-          <QuickFilters value={filters} onChange={setFilters} hide={hideFilters} />
+          <div className={styles.stickyFilters}>
+            <QuickFilters value={filters} onChange={setFilters} hide={hideFilters} />
+          </div>
           {query.data ? (
             <p className="t-meta t-secondary" role="status">
               {count === 1 ? t('list.countOne') : t('list.count', { count })}
