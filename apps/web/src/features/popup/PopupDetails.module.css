@@ -13,7 +13,9 @@
 @media (min-width: 900px) { .gallery { margin-inline: 0; padding-inline: 0; } }
 .head { display: grid; gap: var(--space-xs); }
 .badges { display: flex; flex-wrap: wrap; gap: var(--space-xs); align-items: center; }
-.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px var(--space-xs); border-radius: var(--radius-sm); color: var(--color-text-inverse); font-size: 0.9375rem; font-weight: 500; }
+.badge { display: inline-flex; align-items: center; gap: 6px; min-height: var(--touch); padding-inline: var(--space-md); border-radius: var(--radius-pill); background: var(--color-surface); font-size: 0.9375rem; font-weight: 500; }
+.badge:hover { background: var(--color-surface-pressed); }
+.badgeIcon { display: inline-flex; color: var(--accent); }
 .side { display: grid; gap: var(--space-md); }
 .card { display: grid; gap: var(--space-sm); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-surface); }
 .cardTitle { display: flex; align-items: center; gap: var(--space-xs); }
@@ -39,11 +41,11 @@
 .iconAction {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   min-height: 64px; border-radius: var(--radius-md);
-  border: 1.5px solid var(--color-border); background: var(--color-bg);
+  border: 1.5px solid transparent; background: var(--color-surface);
   font-size: 0.9375rem; font-weight: 500;
 }
-.iconAction:hover { background: var(--color-surface); }
-.iconAction[aria-pressed='true'] { color: var(--color-error); border-color: var(--color-error); }
+.iconAction:hover { background: var(--color-surface-pressed); }
+.iconAction[aria-pressed='true'] { color: var(--color-primary); background: var(--color-primary-soft); }
 .apple { justify-self: center; display: inline-flex; align-items: center; gap: 4px; min-height: var(--touch); color: var(--color-text-secondary); text-decoration: underline; }
 .sticky {
   position: sticky; bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom) + var(--space-xs)); z-index: 10;

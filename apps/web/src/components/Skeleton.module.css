@@ -1,7 +1,9 @@
-.card { background: var(--color-surface); border-radius: var(--radius-lg); overflow: hidden; animation: pulse 1.4s ease-in-out infinite; }
-.compact { width: 272px; flex: none; }
-.image { background: var(--color-surface-pressed); }
-.body { padding: var(--space-md); display: grid; gap: var(--space-xs); }
-.line { height: 1.1rem; border-radius: var(--radius-sm); background: var(--color-surface-pressed); }
-@keyframes pulse { 50% { opacity: 0.6; } }
-.row { display: flex; }
+/* Same shape as the frameless card: a rounded image block with text lines under it. */
+.card { display: grid; gap: var(--space-sm); animation: pulse 1.4s ease-in-out infinite; }
+.compact { width: 264px; flex: none; }
+.image { background: var(--color-surface); border-radius: var(--radius-lg); }
+.body { display: grid; gap: var(--space-xs); padding-inline: 2px; }
+.line { height: 1.1rem; border-radius: var(--radius-sm); background: var(--color-surface); }
+@keyframes pulse { 50% { opacity: 0.55; } }
+.row { display: flex; align-items: center; padding: var(--space-xs); }
+.row .image { border-radius: var(--radius-md); }

@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { Link } from '@/components/Link';
 import { CATEGORIES, formatLocalShortDate, toLocalMs, type PopupDetails } from '@whats-poppin/shared';
 import { Icon, isIconName, type IconName } from '@/components/Icon';
@@ -56,8 +57,12 @@ export function PopupDetailsView({ popup }: Props) {
 
           <header className={styles.head}>
             <div className={styles.badges}>
-              <Link href={`/category/${meta.slug}`} className={styles.badge} style={{ background: meta.color }}>
-                {isIconName(meta.icon) ? <Icon name={meta.icon} size={18} /> : null}
+              <Link href={`/category/${meta.slug}`} className={styles.badge} style={{ '--accent': meta.color } as CSSProperties}>
+                {isIconName(meta.icon) ? (
+                  <span className={styles.badgeIcon}>
+                    <Icon name={meta.icon} size={18} />
+                  </span>
+                ) : null}
                 {t(`categories.${meta.slug}`)}
               </Link>
               {popup.price_range === 'free' ? <span className="t-meta-strong">{t('common.free')}</span> : null}

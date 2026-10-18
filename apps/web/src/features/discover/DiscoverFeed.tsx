@@ -28,12 +28,15 @@ export function DiscoverFeed() {
   return (
     <div className={styles.feed}>
       <header className={styles.header}>
-        <h1 className="t-display">{t('discover.title')}</h1>
-        <LocationPill />
+        <div className={styles.intro}>
+          <h1 className="t-display">{t('discover.title')}</h1>
+          <LocationPill />
+        </div>
+        <div className={styles.tools}>
+          <SearchBox />
+          <CategoryRow />
+        </div>
       </header>
-
-      <SearchBox />
-      <CategoryRow />
 
       <Section id="hot" title={t('discover.hot')} seeAll="/list/hot">
         <CardList {...common} items={query.data?.hot} layout="carousel" surface="hot" empty={<SectionNote>{t('discover.sectionEmpty')}</SectionNote>} />

@@ -9,7 +9,7 @@ export function PopupCardSkeleton({ variant = 'large' }: { variant?: 'large' | '
   if (variant === 'row') {
     return (
       <div className={`${styles.card} ${styles.row}`} role="status" aria-label={t('common.loading')}>
-        <div className={styles.image} style={{ width: 112, height: 112, flex: 'none' }} />
+        <div className={styles.image} style={{ width: 88, height: 88, flex: 'none' }} />
         <div className={styles.body} style={{ flex: 1 }}>
           <div className={styles.line} style={{ width: '50%' }} />
           <div className={styles.line} style={{ width: '85%' }} />

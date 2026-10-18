@@ -89,7 +89,7 @@ export function PopupMap({ popups, user, focus, onSelect }: PopupMapProps) {
           source: 'popups',
           filter: ['has', 'point_count'],
           paint: {
-            'circle-color': '#c2410c',
+            'circle-color': '#c4143f',
             'circle-radius': ['step', ['get', 'point_count'], 20, 10, 26, 30, 32],
             'circle-stroke-width': 3,
             'circle-stroke-color': '#ffffff',

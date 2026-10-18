@@ -19,10 +19,18 @@ export function PopupImage({ src, category, aspectRatio }: PopupImageProps) {
   const meta = CATEGORIES[category] ?? CATEGORIES.more;
   const showFallback = !src || failed;
   return (
-    <div style={{ aspectRatio, background: meta.color, position: 'relative', overflow: 'hidden' }}>
+    <div
+      style={{
+        aspectRatio,
+        // A soft tint of the category color: recognisable, but calm next to real photos.
+        background: `color-mix(in srgb, ${meta.color} 13%, white)`,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
       {showFallback ? (
-        <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', color: 'rgb(255 255 255 / 0.9)' }}>
-          {isIconName(meta.icon) ? <Icon name={meta.icon} size={56} /> : null}
+        <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', color: meta.color }}>
+          {isIconName(meta.icon) ? <Icon name={meta.icon} size={48} /> : null}
         </div>
       ) : (
         // Plain <img> on purpose: images come from many hosts (organizers, Storage, CDNs).
