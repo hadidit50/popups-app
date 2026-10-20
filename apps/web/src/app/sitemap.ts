@@ -2,7 +2,6 @@ import type { MetadataRoute } from 'next';
 import { cacheLife } from 'next/cache';
 import { createClient } from '@supabase/supabase-js';
 import { CATEGORY_SLUGS } from '@whats-poppin/shared';
-import { DEMO_SEED } from '@whats-poppin/shared/src/demo-data';
 
 /** Home, category pages and every live pop-up page, refreshed hourly. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -15,7 +14,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...CATEGORY_SLUGS.map((slug) => ({ url: `${site}/category/${slug}`, changeFrequency: 'daily' as const, priority: 0.7 })),
   ];
 
-  let slugs: string[] = DEMO_SEED.filter((p) => p.status === 'approved').map((p) => p.slug);
+  // Without a database the site only has sample pop-ups: keep them out of search engines.
+  let slugs: string[] = [];
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (url?.startsWith('http') && key) {

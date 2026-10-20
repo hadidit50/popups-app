@@ -63,16 +63,20 @@ export function ProfileScreen() {
         {isAdmin ? <LinkRow href="/admin" icon="shield-account-outline" title={t('profile.adminCta')} body={t('profile.admin')} /> : null}
       </LinkGroup>
 
-      <hr className={styles.divider} />
-
-      <section className={styles.system} aria-labelledby="system-check">
-        <h2 id="system-check">{t('profile.devSection')}</h2>
-        <ConnectionCheck />
-        {!isSupabaseConfigured ? <p className="t-meta t-secondary">{t('common.demoMode')}</p> : null}
-        <ButtonLink href="/design" variant="ghost" size="medium" icon="palette-swatch-outline">
-          {t('profile.uiPreview')}
-        </ButtonLink>
-      </section>
+      {/* Setup tools: for the site owner before the database is connected, then for admins only. */}
+      {isAdmin || !isSupabaseConfigured ? (
+        <>
+          <hr className={styles.divider} />
+          <section className={styles.system} aria-labelledby="system-check">
+            <h2 id="system-check">{t('profile.devSection')}</h2>
+            <ConnectionCheck />
+            {!isSupabaseConfigured ? <p className="t-meta t-secondary">{t('common.demoMode')}</p> : null}
+            <ButtonLink href="/design" variant="ghost" size="medium" icon="palette-swatch-outline">
+              {t('profile.uiPreview')}
+            </ButtonLink>
+          </section>
+        </>
+      ) : null}
     </div>
   );
 }

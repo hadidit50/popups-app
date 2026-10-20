@@ -36,7 +36,7 @@ function toGeoJSON(popups: PopupSummary[]) {
   };
 }
 
-/** Clustered, category-colored markers. Sponsored places get a bigger marker with a purple ring. */
+/** Clustered, category-colored markers. Sponsored places get a bigger marker with a dark ring. */
 export function PopupMap({ popups, user, focus, onSelect }: PopupMapProps) {
   const { t } = useI18n();
   const container = useRef<HTMLDivElement>(null);
@@ -108,7 +108,7 @@ export function PopupMap({ popups, user, focus, onSelect }: PopupMapProps) {
           type: 'circle',
           source: 'popups',
           filter: ['all', ['!', ['has', 'point_count']], ['==', ['get', 'sponsored'], 1]],
-          paint: { 'circle-radius': 19, 'circle-color': '#6d28d9', 'circle-opacity': 0.9 },
+          paint: { 'circle-radius': 19, 'circle-color': '#17181b', 'circle-opacity': 0.9 },
         });
         map.addLayer({
           id: 'points',

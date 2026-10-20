@@ -2,7 +2,7 @@
 .tabs { list-style: none; display: flex; gap: var(--space-xs); overflow-x: auto; padding-bottom: 4px; }
 .tab {
   display: inline-flex; align-items: center; min-height: var(--touch); padding-inline: var(--space-md);
-  border-radius: var(--radius-pill); background: var(--color-surface); font-weight: 600; white-space: nowrap;
+  border-radius: var(--radius-sm); background: var(--color-surface); font-weight: 600; white-space: nowrap;
 }
 .tab[aria-current='page'] { background: var(--color-text); color: var(--color-text-inverse); }
 .stack { display: grid; gap: var(--space-md); }

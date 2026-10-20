@@ -19,7 +19,7 @@
 .segmented { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .segment {
   min-height: var(--touch); padding-inline: var(--space-md);
-  border-radius: var(--radius-pill); border: 1.5px solid transparent;
+  border-radius: var(--radius-sm); border: 1.5px solid transparent;
   font-weight: 500; background: var(--color-surface);
 }
 .segment:hover { background: var(--color-surface-pressed); }

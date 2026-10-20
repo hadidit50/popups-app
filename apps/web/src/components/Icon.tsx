@@ -1,4 +1,11 @@
 import {
+  mdiMinus,
+  mdiContrastCircle,
+  mdiLinkVariant,
+  mdiFormatFont,
+  mdiMotionPauseOutline,
+  mdiFormatSize,
+  mdiRestore,
   mdiAccountCircle,
   mdiAccountCircleOutline,
   mdiAccountCogOutline,
@@ -177,6 +184,13 @@ const ICONS = {
   lifebuoy: mdiLifebuoy,
   'message-text-outline': mdiMessageTextOutline,
   'rocket-launch-outline': mdiRocketLaunchOutline,
+  'minus': mdiMinus,
+  'contrast-circle': mdiContrastCircle,
+  'link-variant': mdiLinkVariant,
+  'format-font': mdiFormatFont,
+  'motion-pause-outline': mdiMotionPauseOutline,
+  'format-size': mdiFormatSize,
+  'restore': mdiRestore,
 } as const;
 
 export type IconName = keyof typeof ICONS;

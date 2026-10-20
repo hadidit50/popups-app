@@ -1258,7 +1258,7 @@ insert into public.categories (slug, color, icon, sort_order) values
   ('food',    '#B8460B', 'food', 1),
   ('fashion', '#C2255C', 'hanger', 2),
   ('markets', '#237032', 'storefront-outline', 3),
-  ('art',     '#7048E8', 'palette-outline', 4),
+  ('art',     '#946800', 'palette-outline', 4),
   ('kids',    '#1971C2', 'teddy-bear', 5),
   ('brands',  '#0B7285', 'star-four-points-outline', 6),
   ('more',    '#495057', 'dots-horizontal-circle-outline', 7);

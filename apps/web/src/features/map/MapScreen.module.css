@@ -27,7 +27,7 @@
   bottom: calc(var(--panel-peek) + var(--space-md));
   display: inline-flex; align-items: center; gap: var(--space-xs);
   min-height: 56px; padding-inline: var(--space-lg);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm);
   background: var(--color-primary); color: var(--color-on-primary);
   font-size: 1.125rem; font-weight: 700;
   box-shadow: var(--shadow-floating);
@@ -42,7 +42,7 @@
 }
 .previewClose {
   position: absolute; top: -18px; inset-inline-start: -8px; z-index: 2;
-  width: 40px; height: 40px; border-radius: 50%;
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
   display: grid; place-items: center;
   background: var(--color-text); color: var(--color-text-inverse);
 }
@@ -72,7 +72,7 @@
 .radius { display: flex; gap: var(--space-xs); align-items: center; flex-wrap: wrap; }
 .radiusBtn {
   min-height: var(--touch); min-width: 56px; padding-inline: var(--space-sm);
-  border-radius: var(--radius-pill); border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm); border: 1.5px solid var(--color-border);
   font-weight: 500;
 }
 .radiusBtn[aria-pressed='true'] { background: var(--color-text); border-color: var(--color-text); color: var(--color-text-inverse); }

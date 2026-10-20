@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useId, useRef, type ReactNode } from 'react';
 import { useI18n } from '@/lib/i18n-client';
 import { Icon } from './Icon';
 import styles from './Sheet.module.css';
@@ -20,6 +20,8 @@ interface SheetProps {
 export function Sheet({ open, onClose, title, description, children }: SheetProps) {
   const { t } = useI18n();
   const ref = useRef<HTMLDialogElement>(null);
+  // Unique per sheet: several sheets can live on one page.
+  const titleId = useId();
 
   useEffect(() => {
     const dialog = ref.current;
@@ -32,7 +34,7 @@ export function Sheet({ open, onClose, title, description, children }: SheetProp
     <dialog
       ref={ref}
       className={styles.dialog}
-      aria-labelledby="sheet-title"
+      aria-labelledby={titleId}
       onClose={onClose}
       onClick={(e) => {
         // Tap on the dimmed backdrop closes the sheet.
@@ -43,7 +45,7 @@ export function Sheet({ open, onClose, title, description, children }: SheetProp
         <div className={styles.handle} aria-hidden="true" />
         <div className={styles.header}>
           <div style={{ display: 'grid', gap: 'var(--space-xxs)' }}>
-            <h2 id="sheet-title" className="t-title">
+            <h2 id={titleId} className="t-title">
               {title}
             </h2>
             {description ? <p className="t-body t-secondary">{description}</p> : null}

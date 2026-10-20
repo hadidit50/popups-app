@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "WHATS POPPIN",
-    "tagline": "All of Israel's pop-ups in one place"
+    "tagline": "Pop-ups and temporary markets in Israel, by what's open and close"
   },
   "tabs": {
     "discover": "Discover",
@@ -22,7 +22,8 @@
     "mainNav": "Main navigation",
     "home": "Home",
     "tryAgain": "Try again",
-    "demoMode": "Demo mode: sample data until Supabase is connected."
+    "demoMode": "Demo mode: sample data until Supabase is connected.",
+    "sampleNotice": "Preview: the pop-ups shown here are examples, not real events."
   },
   "status": {
     "openNow": "Open now",
@@ -78,7 +79,7 @@
     "eilat": "Eilat"
   },
   "discover": {
-    "title": "What's on today?",
+    "title": "Pop-ups and markets near you",
     "placeholderTitle": "The feed is on its way!",
     "placeholderBody": "Hot pop-ups, what's near you and what's on this weekend will show up here. Meanwhile, take a look at the design.",
     "openPreview": "Open the design preview",
@@ -145,7 +146,7 @@
     "save": "Save preferences",
     "saved": "Saved ✓",
     "business": "For businesses",
-    "businessBody": "Running a pop-up? Submit it for free and reach thousands of people nearby.",
+    "businessBody": "Running a pop-up? Submit it for free and it will show up for people nearby looking for something to do.",
     "businessCta": "Submit a pop-up",
     "admin": "Site admin",
     "adminCta": "Open the admin panel",
@@ -172,6 +173,22 @@
     "saveButton": "Save {{title}}",
     "unsaveButton": "Remove {{title}} from saved"
   },
+  "a11yMenu": {
+    "open": "Accessibility menu",
+    "title": "Accessibility",
+    "saved": "Settings are saved in this browser.",
+    "textSize": "Text size",
+    "smaller": "Smaller text",
+    "larger": "Larger text",
+    "contrast": "High contrast",
+    "links": "Highlight links",
+    "font": "Readable font",
+    "motion": "Stop animations",
+    "on": "On",
+    "off": "Off",
+    "reset": "Reset settings",
+    "statement": "Accessibility statement"
+  },
   "preview": {
     "title": "Design system",
     "colors": "Colors",
@@ -192,7 +209,7 @@
     "intro": "Every building block of the site in one place. The sample data here is fixed, not from the server."
   },
   "meta": {
-    "title": "WHATS POPPIN – All of Israel's pop-ups",
+    "title": "WHATS POPPIN – Pop-ups and temporary markets in Israel",
     "description": "Food, fashion, markets, art and brand pop-ups near you and across Israel. What's open now, what's on this weekend and what's ending soon."
   },
   "notFound": {
@@ -511,6 +528,7 @@
         "WHATS POPPIN wants everyone to be able to find pop-ups and get to them, including people with disabilities. The site follows Israeli Standard 5568 (based on WCAG 2.0 level AA) and the Equal Rights for Persons with Disabilities (Service Accessibility Adjustments) Regulations, 2013. We also aim to meet WCAG 2.1.",
         "## What we've done",
         "The site is available in Hebrew, Arabic and English, and you can switch language with one tap at the top of every page.",
+        "Every page has an accessibility button at the top. It lets you enlarge text, turn on high contrast, highlight links, switch to a readable font and stop animations. Settings are saved in your browser.",
         "The whole site works with a keyboard alone, and every page starts with a \"Skip to content\" link.",
         "All buttons and links are large (at least 48×48 pixels) and have a clear name for screen readers.",
         "Text is never smaller than 15 pixels, you can zoom to 200% without losing content, and color contrast meets level AA.",
@@ -556,7 +574,7 @@
         "## In short",
         "We collect only what the site needs to work. We don't sell personal information and don't use third-party advertising tools.",
         "## What we keep",
-        "Without signing up: the pop-ups you saved and the language you chose are kept in your browser. So that saving works without signing up, an anonymous account is created for you, with no name and no email.",
+        "Without signing up: the pop-ups you saved, the language you chose and your accessibility settings are kept in your browser. So that saving works without signing up, an anonymous account is created for you, with no name and no email.",
         "If you sign up: your email address, the pop-ups you saved, the categories and area you chose in your profile, and whether you asked for reminders.",
         "Businesses: the business name, a contact phone and email (not shown on the site), and the pop-ups you submitted.",
         "Statistics: views, saves, navigations and shares of pop-ups, with no name and no email. That's how we know what's \"Hot now\" and show businesses how many people were interested.",
@@ -636,7 +654,7 @@
     "promise": "We'll get back to you with a price within 48 hours. You only pay after you approve.",
     "subject": "Promotion request · {{business}}",
     "cardTitle": "Got a pop-up? Promote it",
-    "cardBody": "Be first on the home page, at the top of \"Near you\" and on the map, in front of thousands of people looking for something to do.",
+    "cardBody": "Be first on the home page, at the top of \"Near you\" and on the map, in front of people looking for something to do.",
     "cardCta": "Promote my pop-up",
     "rowCta": "Promote"
   }
