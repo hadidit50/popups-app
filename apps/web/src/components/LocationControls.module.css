@@ -9,7 +9,7 @@
   display: inline-flex; align-items: center; gap: 6px;
   min-height: var(--touch); padding-inline: var(--space-sm);
   margin-inline-start: calc(var(--space-sm) * -1);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm);
   color: var(--color-text-secondary);
   font-weight: 500;
   max-width: 100%;

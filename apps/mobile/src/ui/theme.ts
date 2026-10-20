@@ -25,8 +25,8 @@ export const colors = {
   statusNeutral: '#4B5563',
   statusNeutralSoft: '#F3F4F6',
 
-  sponsored: '#6D28D9',
-  sponsoredSoft: '#F3E8FF',
+  sponsored: '#5C4300',
+  sponsoredSoft: '#FFE9A8',
 
   error: '#B91C1C',
   errorSoft: '#FEE2E2',

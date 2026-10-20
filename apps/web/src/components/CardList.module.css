@@ -21,7 +21,7 @@
   position: absolute; top: calc(264px * 3 / 8 - var(--touch) / 2 + var(--space-xxs));
   width: var(--touch); height: var(--touch);
   place-items: center;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   background: var(--color-bg); color: var(--color-text);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-floating);

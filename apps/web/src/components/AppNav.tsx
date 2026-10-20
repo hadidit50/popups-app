@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Suspense } from 'react';
 import { LANG_COOKIE, LANG_NAMES, LANGS, localePath, splitLangPath, type Lang } from '@/lib/i18n';
 import { useI18n } from '@/lib/i18n-client';
+import { AccessibilityMenu } from './AccessibilityMenu';
 import { Icon, type IconName } from './Icon';
 import styles from './AppNav.module.css';
 
@@ -62,7 +63,10 @@ function AppNavView({ pathname: fullPath }: { pathname: string }) {
               })}
             </ul>
           </nav>
-          <LanguageLinks pathname={pathname} />
+          <div className={styles.tools}>
+            <LanguageLinks pathname={pathname} />
+            <AccessibilityMenu />
+          </div>
         </div>
       </header>
 

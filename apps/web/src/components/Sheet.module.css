@@ -16,7 +16,7 @@
 .header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-sm); }
 .close {
   width: var(--touch); height: var(--touch); flex: none;
-  display: grid; place-items: center; border-radius: 50%;
+  display: grid; place-items: center; border-radius: var(--radius-sm);
   background: var(--color-surface);
 }
 @media (min-width: 900px) {

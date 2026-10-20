@@ -18,7 +18,7 @@ export const CATEGORIES: Record<CategorySlug, CategoryMeta> = {
   food: { slug: 'food', color: '#B8460B', icon: 'food', emoji: '🍔' },
   fashion: { slug: 'fashion', color: '#C2255C', icon: 'hanger', emoji: '👗' },
   markets: { slug: 'markets', color: '#237032', icon: 'storefront-outline', emoji: '🛍️' },
-  art: { slug: 'art', color: '#7048E8', icon: 'palette-outline', emoji: '🎨' },
+  art: { slug: 'art', color: '#946800', icon: 'palette-outline', emoji: '🎨' },
   kids: { slug: 'kids', color: '#1971C2', icon: 'teddy-bear', emoji: '🧸' },
   brands: { slug: 'brands', color: '#0B7285', icon: 'star-four-points-outline', emoji: '✨' },
   more: { slug: 'more', color: '#495057', icon: 'dots-horizontal-circle-outline', emoji: '➕' },

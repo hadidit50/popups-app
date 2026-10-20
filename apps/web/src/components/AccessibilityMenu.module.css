@@ -1,0 +1,43 @@
+.trigger {
+  flex: none; width: var(--touch); height: var(--touch);
+  display: grid; place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-text); color: var(--color-text-inverse);
+}
+.trigger:hover { background: var(--color-primary-pressed); }
+
+.textRow { display: flex; align-items: center; gap: var(--space-xs); }
+.textLabel { flex: 1; display: inline-flex; align-items: center; gap: var(--space-xs); font-weight: 600; }
+.stepper {
+  width: var(--touch); height: var(--touch); flex: none;
+  display: grid; place-items: center;
+  border-radius: var(--radius-sm); border: 1.5px solid var(--color-border-strong);
+  background: var(--color-bg);
+}
+.stepper:hover { background: var(--color-surface); }
+.stepper:disabled { opacity: 0.4; cursor: not-allowed; }
+.textValue { min-width: 4ch; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.toggles { list-style: none; display: grid; gap: var(--space-xs); grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.toggle {
+  width: 100%; min-height: 56px;
+  display: flex; align-items: center; gap: var(--space-sm);
+  padding-inline: var(--space-md);
+  border-radius: var(--radius-sm); border: 1.5px solid var(--color-border);
+  background: var(--color-bg); text-align: start; font-weight: 500;
+}
+.toggle:hover { background: var(--color-surface); }
+.toggle[aria-pressed='true'] { background: var(--color-text); border-color: var(--color-text); color: var(--color-text-inverse); }
+.toggleLabel { flex: 1; }
+.state { font-size: 0.9375rem; color: var(--color-text-secondary); }
+.toggle[aria-pressed='true'] .state { color: inherit; }
+
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); }
+.reset {
+  display: inline-flex; align-items: center; gap: var(--space-xs);
+  min-height: var(--touch); padding-inline: var(--space-md);
+  border-radius: var(--radius-sm); background: var(--color-surface); font-weight: 600;
+}
+.reset:hover { background: var(--color-surface-pressed); }
+.reset:disabled { opacity: 0.5; cursor: not-allowed; }
+.statement { display: inline-flex; align-items: center; min-height: var(--touch); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }

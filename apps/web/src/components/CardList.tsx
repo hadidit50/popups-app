@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { PopupSummary } from '@whats-poppin/shared';
+import { prefersLessMotion } from '@/lib/a11y-prefs';
 import { useI18n } from '@/lib/i18n-client';
 import { Button } from './Button';
 import { Icon } from './Icon';
@@ -69,7 +70,7 @@ function Carousel({ children }: { children: ReactNode }) {
     const el = ref.current;
     if (!el) return;
     const amount = el.clientWidth * 0.85 * (towardsEnd ? 1 : -1) * (dir === 'rtl' ? -1 : 1);
-    el.scrollBy({ left: amount, behavior: 'smooth' });
+    el.scrollBy({ left: amount, behavior: prefersLessMotion() ? 'auto' : 'smooth' });
   };
   const backIcon = forward === 'chevron-left' ? 'chevron-right' : 'chevron-left';
 

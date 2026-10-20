@@ -13,7 +13,7 @@
 @media (min-width: 900px) { .gallery { margin-inline: 0; padding-inline: 0; } }
 .head { display: grid; gap: var(--space-xs); }
 .badges { display: flex; flex-wrap: wrap; gap: var(--space-xs); align-items: center; }
-.badge { display: inline-flex; align-items: center; gap: 6px; min-height: var(--touch); padding-inline: var(--space-md); border-radius: var(--radius-pill); background: var(--color-surface); font-size: 0.9375rem; font-weight: 500; }
+.badge { display: inline-flex; align-items: center; gap: 6px; min-height: var(--touch); padding-inline: var(--space-md); border-radius: var(--radius-sm); background: var(--color-surface); font-size: 0.9375rem; font-weight: 500; }
 .badge:hover { background: var(--color-surface-pressed); }
 .badgeIcon { display: inline-flex; color: var(--accent); }
 /* Info sections: no boxes, just hairlines between them (easier to scan, like a listing page). */
@@ -39,7 +39,7 @@
 .links { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .description { white-space: pre-line; }
 .banner { display: grid; gap: var(--space-xs); padding: var(--space-md); border-radius: var(--radius-lg); background: var(--color-soon-soft); }
-.pending { padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); background: var(--color-sponsored-soft); color: var(--color-sponsored); }
+.pending { padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text); font-weight: 500; }
 
 /* Actions: the two navigation buttons stay reachable at the bottom of the screen on phones. */
 .actions { display: grid; gap: var(--space-sm); }

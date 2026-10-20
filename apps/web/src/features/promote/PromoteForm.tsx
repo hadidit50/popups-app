@@ -26,7 +26,7 @@ export function PromoteOptions() {
       {PLACEMENTS.map((p) => (
         <li key={p.key} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-sm)' }}>
           <span
-            style={{ display: 'grid', placeItems: 'center', flex: 'none', width: 44, height: 44, borderRadius: '50%', background: 'var(--color-primary-soft)', color: 'var(--color-primary)' }}
+            style={{ display: 'grid', placeItems: 'center', flex: 'none', width: 44, height: 44, borderRadius: 'var(--radius-sm)', background: 'var(--color-primary-soft)', color: 'var(--color-primary)' }}
           >
             <Icon name={p.icon} size={22} />
           </span>
