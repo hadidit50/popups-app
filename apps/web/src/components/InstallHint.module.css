@@ -1,0 +1,62 @@
+/* Docked at the side, just above the bottom tab bar: present, never in the way. */
+.hint {
+  position: fixed; z-index: 25;
+  inset-inline-end: var(--gutter);
+  bottom: calc(var(--bottom-nav-height) + var(--space-sm) + env(safe-area-inset-bottom));
+  display: flex; align-items: center;
+  max-width: min(18rem, calc(100vw - 2 * var(--gutter)));
+  padding-inline-start: 6px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-floating);
+}
+.open {
+  display: flex; align-items: center; gap: var(--space-sm);
+  min-height: 56px; padding-block: 6px; padding-inline-end: var(--space-xs);
+  text-align: start; color: var(--color-text);
+}
+/* The site's own icon, the way it will look on the home screen. */
+.tile { position: relative; flex: none; width: 40px; height: 40px; }
+.tile img { width: 40px; height: 40px; border-radius: 9px; display: block; }
+.badge {
+  position: absolute; inset-block-end: -4px; inset-inline-end: -4px;
+  display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--color-primary); color: var(--color-on-primary);
+  box-shadow: 0 0 0 2px var(--color-bg);
+}
+.label { font-size: 0.9375rem; font-weight: 600; line-height: 1.25; }
+.close {
+  flex: none; display: grid; place-items: center;
+  width: var(--touch); height: var(--touch); color: var(--color-text-secondary);
+}
+.close:hover { color: var(--color-text); }
+
+/* One entrance, from the side it lives on. */
+.animate { animation: slide-in 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+:global([dir='rtl']) .animate { --from: -120%; }
+:global([dir='ltr']) .animate { --from: 120%; }
+@keyframes slide-in {
+  from { transform: translateX(var(--from)); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.steps { list-style: none; display: grid; gap: var(--space-sm); counter-reset: step; }
+.step { display: flex; align-items: center; gap: var(--space-sm); counter-increment: step; }
+.stepIcon {
+  position: relative; flex: none; display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: var(--radius-md);
+  background: var(--color-surface); color: var(--color-text);
+}
+.stepIcon::after {
+  content: counter(step);
+  position: absolute; inset-block-start: -6px; inset-inline-start: -6px;
+  display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--color-text); color: var(--color-text-inverse);
+  font-size: 0.9375rem; font-weight: 700; line-height: 1;
+}
+
+/* Wide screens: there is no bottom tab bar and nothing to add to a home screen. */
+@media (min-width: 900px) {
+  .hint { bottom: var(--space-lg); }
+}
