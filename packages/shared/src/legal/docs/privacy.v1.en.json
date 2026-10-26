@@ -1,0 +1,26 @@
+{
+  "doc": "privacy",
+  "version": 1,
+  "updated": "2026-10-17",
+  "lang": "en",
+  "title": "Privacy policy",
+  "legacyBody": [
+    "## In short",
+    "We collect only what the site needs to work. We don't sell personal information and don't use third-party advertising tools.",
+    "## What we keep",
+    "Without signing up: the pop-ups you saved, the language you chose and your accessibility settings are kept in your browser. So that saving works without signing up, an anonymous account is created for you, with no name and no email.",
+    "If you sign up: your email address, the pop-ups you saved, the categories and area you chose in your profile, and whether you asked for reminders.",
+    "Businesses: the business name, a contact phone and email (not shown on the site), and the pop-ups you submitted.",
+    "Statistics: views, saves, navigations and shares of pop-ups, with no name and no email. That's how we know what's \"Hot now\" and show businesses how many people were interested.",
+    "## Location",
+    "If you allow location access, it's used only inside your browser to calculate distances and sort by what's close. We don't store your location.",
+    "## Reminders",
+    "If you turn on reminders, a technical browser ID is stored so we can send you a notification. You can turn reminders off at any time in your profile.",
+    "## Who else is involved",
+    "The site uses a few providers: Supabase (database and sign-in, on servers in the European Union), Vercel (website hosting), OpenFreeMap (the map), and an address-lookup service for businesses submitting a pop-up. They only receive what's needed to provide the service.",
+    "## Your rights",
+    "Under Israel's Privacy Protection Law, you can ask to see, correct or delete your information. Write to us at {{email}} and we'll take care of it.",
+    "## Updates",
+    "If we change this policy, the current version will appear here. Last updated: {{date}}."
+  ]
+}

@@ -10,6 +10,7 @@ import { StateView } from '@/components/StateView';
 import { fetchList } from '@/lib/data';
 import { getTranslator, LANGS } from '@/lib/i18n';
 import { useI18n } from '@/lib/i18n-client';
+import { AdvertiserDisclaimer } from '@/features/legal/AdvertiserNotes';
 import { useLocation } from '@/lib/location';
 import styles from './DiscoverFeed.module.css';
 
@@ -44,6 +45,7 @@ export function SearchResults() {
           <h2 className="t-heading" role="status">
             {t('search.results', { q })}
           </h2>
+          <AdvertiserDisclaimer />
           <CardList
             items={query.data}
             loading={!ready || query.isPending}

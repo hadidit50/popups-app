@@ -1,0 +1,28 @@
+{
+  "doc": "accessibility",
+  "version": 1,
+  "updated": "2026-10-17",
+  "lang": "en",
+  "title": "Accessibility statement",
+  "legacyBody": [
+    "## Our commitment",
+    "WHATS POPPIN wants everyone to be able to find pop-ups and get to them, including people with disabilities. The site follows Israeli Standard 5568 (based on WCAG 2.0 level AA) and the Equal Rights for Persons with Disabilities (Service Accessibility Adjustments) Regulations, 2013. We also aim to meet WCAG 2.1.",
+    "## What we've done",
+    "The site is available in Hebrew, Arabic and English, and you can switch language with one tap at the top of every page.",
+    "Every page has an accessibility button at the top. It lets you enlarge text, turn on high contrast, highlight links, switch to a readable font and stop animations. Settings are saved in your browser.",
+    "The whole site works with a keyboard alone, and every page starts with a \"Skip to content\" link.",
+    "All buttons and links are large (at least 48×48 pixels) and have a clear name for screen readers.",
+    "Text is never smaller than 15 pixels, you can zoom to 200% without losing content, and color contrast meets level AA.",
+    "Information never relies on color alone: every category also has an icon and a name, and statuses (such as \"Open now\") are written in words.",
+    "Everything shown on the map is also available in a regular list that works well with screen readers.",
+    "Every pop-up page shows accessibility information about the venue itself: wheelchair access, parking and suitability for kids, as provided by the organizers.",
+    "## What isn't perfect yet",
+    "Some content (pop-up photos and descriptions) is uploaded by businesses. We ask them to write clear text, but not every photo may have a full description.",
+    "The map comes from an external service (OpenFreeMap), and street names on it appear in the local language.",
+    "Venue accessibility details are provided by the organizers; we don't check them on site.",
+    "## Found a problem?",
+    "We'd love to hear about it and fix it. Contact our accessibility coordinator: {{email}}. Please tell us which page had the problem, what you were trying to do, and which device and browser you used. We'll get back to you within 14 days.",
+    "## Last updated",
+    "This statement was last updated on {{date}}."
+  ]
+}

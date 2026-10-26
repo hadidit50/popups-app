@@ -13,6 +13,7 @@ import { fetchList, type Place } from '@/lib/data';
 import { useI18n } from '@/lib/i18n-client';
 import { useLocation } from '@/lib/location';
 import { PopupMap } from './PopupMap';
+import { AdvertiserDisclaimer } from '@/features/legal/AdvertiserNotes';
 import styles from './MapScreen.module.css';
 
 const RADII = [1, 5, 10, 25] as const;
@@ -137,6 +138,7 @@ export function MapScreen() {
                     </button>
                   ))}
                 </div>
+                <AdvertiserDisclaimer />
                 <CardList
                   items={nearby.data}
                   loading={nearby.isPending}

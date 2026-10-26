@@ -1,0 +1,27 @@
+{
+  "doc": "terms",
+  "version": 1,
+  "updated": "2026-10-17",
+  "lang": "en",
+  "title": "Terms of use",
+  "legacyBody": [
+    "## About the service",
+    "WHATS POPPIN (\"the site\") brings together information about pop-ups, markets and temporary events, to help you discover what's on and get there. The site is free for visitors.",
+    "By using the site you agree to these terms. If you don't agree, please don't use the site.",
+    "## Information on the site",
+    "Most information about pop-ups (hours, prices, addresses and photos) comes from the organizers. We work to keep it accurate and up to date, but can't guarantee it. Before heading out, it's worth checking the organizer's own page too.",
+    "The site isn't responsible for the pop-ups themselves: their products, service, prices or what happens there. That's the organizers' responsibility.",
+    "## Sponsored content",
+    "Some pop-ups are promoted for a fee. They are always marked with a \"Sponsored\" tag.",
+    "## Businesses and organizers",
+    "Anyone who submits a pop-up confirms that the information is correct, that they have the right to publish the photos and text, and that the pop-up is legal. They allow us to show the content on the site, translate it and share it to promote the site.",
+    "We may approve, edit, reject or remove any pop-up, for example if the information is wrong, offensive, misleading or infringes other people's rights.",
+    "## Fair use",
+    "Don't upload offensive, misleading or illegal content, impersonate others, harm the site, or collect data from it automatically without permission.",
+    "## Liability",
+    "The site is provided as is. To the extent the law allows, we're not liable for damage caused by using the site or relying on its information.",
+    "## Changes and contact",
+    "We may update these terms from time to time; the current version always appears on this page. These terms are governed by the laws of the State of Israel, and the courts of Tel Aviv-Yafo have jurisdiction.",
+    "Questions? Write to us: {{email}}. Last updated: {{date}}."
+  ]
+}
