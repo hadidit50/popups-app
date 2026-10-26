@@ -3,8 +3,7 @@ import { Link } from '@/components/Link';
 import { Page } from '@/components/Page';
 import { getI18n } from '@/lib/i18n-server';
 import {
-  companyLine,
-  companyOwner,
+  fillCompany,
   formatLegalDate,
   getLegalDoc,
   latestLegalVersion,
@@ -167,7 +166,7 @@ function Legacy({ doc }: { doc: Extract<LegalDocument, { legacyBody: unknown }> 
 
 /** **bold**, and the {{email}} / {{company}} / {{owner}} placeholders. */
 function rich(text: string): ReactNode {
-  const filled = text.replaceAll('{{company}}', companyLine()).replaceAll('{{owner}}', companyOwner());
+  const filled = fillCompany(text);
   return filled.split(/(\*\*[^*]+\*\*|\{\{email\}\})/).map((part, i) => {
     if (part === '{{email}}') {
       return (
