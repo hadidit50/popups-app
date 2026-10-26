@@ -14,6 +14,7 @@
 - Every list screen needs loading (skeleton), empty and error states that tell the user what to do next.
 - Status wording ("Open now", "Ends in 2 days") comes only from `packages/shared/src/status.ts`; the SQL `popup_is_open_at` must stay consistent with it.
 - Sponsored items must always render `SponsoredTag`.
+- Legal documents (terms, privacy, accessibility, advertiser agreement) are versioned data in `packages/shared/src/legal/docs/<doc>.v<N>.<lang>.json`, rendered by `features/legal/LegalPage.tsx`. Never edit a published version: add the next version (old ones stay at `/legal/<doc>/<N>`). Terms: "גולש" (visitor), "מפרסם" (advertiser), "החברה", "הפלטפורמה"; never "משתמש" (tested). Hebrew is the binding text; `npm run legal:docx` builds the Word file for legal review.
 - Country/city/timezone are data. Never hard-code Israel outside seed data and defaults.
 
 ## Commands

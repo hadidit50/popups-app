@@ -12,9 +12,10 @@ const LINKS = [
   { href: '/accessibility', label: 'legal.accessibility.title' },
   { href: '/terms', label: 'legal.terms.title' },
   { href: '/privacy', label: 'legal.privacy.title' },
+  { href: '/advertisers', label: 'legal.advertisers.title' },
 ];
 
-/** Contact, accessibility statement, terms and privacy: reachable from every page (not on the full-screen map). */
+/** Contact, accessibility statement, terms, privacy and the advertiser agreement: reachable from every page (not on the full-screen map). */
 export function SiteFooter() {
   return (
     <Suspense fallback={null}>

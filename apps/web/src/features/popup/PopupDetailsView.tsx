@@ -7,6 +7,7 @@ import { Icon, isIconName, type IconName } from '@/components/Icon';
 import { PopupImage } from '@/components/PopupImage';
 import { useI18n } from '@/lib/i18n-client';
 import { HoursTable, LiveStatus } from './LiveStatus';
+import { AdvertiserDisclaimer } from '@/features/legal/AdvertiserNotes';
 import { PopupActions } from './PopupActions';
 import styles from './PopupDetails.module.css';
 
@@ -72,6 +73,7 @@ export function PopupDetailsView({ popup }: Props) {
             <LiveStatus popup={popup} />
           </header>
 
+          <AdvertiserDisclaimer />
           <PopupActions popup={popup} />
 
           {popup.description ? (

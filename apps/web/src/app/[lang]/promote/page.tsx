@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { Page } from '@/components/Page';
 import { PopupCardSkeleton } from '@/components/Skeleton';
 import { SponsoredTag } from '@/components/SponsoredTag';
+import { AdvertiserTermsNote } from '@/features/legal/AdvertiserNotes';
 import { PromoteForm, PromoteOptions } from '@/features/promote/PromoteForm';
 import { getI18n } from '@/lib/i18n-server';
 
@@ -24,6 +25,7 @@ export default async function PromotePage() {
         <p className="t-body" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 'var(--space-xs)' }}>
           <SponsoredTag /> {t('promote.honest')}
         </p>
+        <AdvertiserTermsNote />
         <Suspense fallback={<PopupCardSkeleton />}>
           <PromoteForm />
         </Suspense>
