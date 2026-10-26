@@ -80,15 +80,21 @@ export function getLegalDoc(id: LegalDocId, version: number, lang: Lang): { doc:
 
 export const LEGAL_EMAIL = company.email;
 
-/** "איל חדידה, עוסק מס' 123" — parts that aren't filled in yet are left out. */
+/** Name, business number and address, as far as they're filled in (empty until the owner decides to publish them). */
 export function companyLine(): string {
   return [company.ownerName, company.businessId ? `${company.businessType} מס' ${company.businessId}` : '', company.address]
     .filter(Boolean)
     .join(', ');
 }
 
-export function companyOwner(): string {
-  return company.ownerName;
+/**
+ * Fills {{company}} and {{owner}}. While the operator's details aren't published, the sentence is
+ * written without them: "החברה: המפעיל את WHATS POPPIN", "רכז הנגישות: <email>".
+ */
+export function fillCompany(text: string): string {
+  const line = companyLine();
+  const out = line ? text.replaceAll('{{company}}', line) : text.replaceAll('{{company}}, ', '').replaceAll('{{company}}', 'מפעיל הפלטפורמה');
+  return company.ownerName ? out.replaceAll('{{owner}}', company.ownerName) : out.replace(/\{\{owner\}\}\.\s*(מייל:\s*)?/g, '');
 }
 
 /** "2026-10-26" → "26.10.2026" */
