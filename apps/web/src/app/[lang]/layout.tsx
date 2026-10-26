@@ -7,6 +7,7 @@ import '@fontsource-variable/rubik/wght.css';
 import '@fontsource-variable/noto-sans-arabic/wght.css';
 import '../globals.css';
 import { AppNav } from '@/components/AppNav';
+import { InstallHint } from '@/components/InstallHint';
 import { SampleNotice } from '@/components/SampleNotice';
 import { Providers } from '@/components/Providers';
 import { SiteFooter } from '@/components/SiteFooter';
@@ -58,6 +59,7 @@ export default async function RootLayout({ children, params }: { children: React
             <SampleNotice />
             <main id="main">{children}</main>
             <SiteFooter />
+            <InstallHint />
           </Providers>
         </I18nProvider>
       </body>

@@ -93,6 +93,9 @@ import {
   mdiLifebuoy,
   mdiMessageTextOutline,
   mdiRocketLaunchOutline,
+  mdiExportVariant,
+  mdiPlusBoxOutline,
+  mdiDotsVertical,
 } from '@mdi/js';
 
 // Material Design Icons — the same set the shared category metadata names (e.g. "storefront-outline").
@@ -191,6 +194,9 @@ const ICONS = {
   'motion-pause-outline': mdiMotionPauseOutline,
   'format-size': mdiFormatSize,
   'restore': mdiRestore,
+  'export-variant': mdiExportVariant,
+  'plus-box-outline': mdiPlusBoxOutline,
+  'dots-vertical': mdiDotsVertical,
 } as const;
 
 export type IconName = keyof typeof ICONS;

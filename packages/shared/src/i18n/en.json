@@ -610,5 +610,17 @@
     "cardBody": "Be first on the home page, at the top of \"Near you\" and on the map, in front of people looking for something to do.",
     "cardCta": "Promote my pop-up",
     "rowCta": "Promote"
+  },
+  "install": {
+    "hint": "Add to Home Screen",
+    "dismiss": "Close",
+    "title": "WHATS POPPIN on your home screen",
+    "body": "Opens like an app: full screen, one tap, nothing to download from a store.",
+    "iosStep1": "Tap the Share button in the browser bar.",
+    "iosStep2": "Scroll and choose \"Add to Home Screen\".",
+    "androidStep1": "Open the browser menu (the three dots).",
+    "androidStep2": "Choose \"Install app\" or \"Add to Home screen\".",
+    "step3": "Confirm, and the icon appears on your home screen.",
+    "done": "Got it"
   }
 }
